@@ -1,0 +1,488 @@
+{
+  "uiErrorPublicPageIncomplete": {
+    "message": "The received page is incomplete. Open the listing on Vinted, refresh and check that you are signed in. Complete any verification shown, then retry. No listing was created during this attempt."
+  },
+  "extensionName": {
+    "message": "Vinted Republish FREE",
+    "description": "Public extension name."
+  },
+  "extensionShortName": {
+    "message": "Republish",
+    "description": "Short extension name."
+  },
+  "extensionDescription": {
+    "message": "Republish individual or multiple listings directly from your Vinted wardrobe.",
+    "description": "Manifest and Chrome Web Store summary, maximum 132 characters."
+  },
+  "uiNavHome": {
+    "message": "Welcome"
+  },
+  "uiNavSettings": {
+    "message": "Settings"
+  },
+  "uiNavPending": {
+    "message": "Listings to republish"
+  },
+  "uiLanguage": {
+    "message": "Language"
+  },
+  "uiWelcomeTitle": {
+    "message": "Thanks for installing Vinted Republish"
+  },
+  "uiWelcomeLead": {
+    "message": "Relist an item without starting from scratch. Two steps to find your buttons, with your listings backed up on this device."
+  },
+  "uiPinTitle": {
+    "message": "Pin the extension to your toolbar"
+  },
+  "uiPinText": {
+    "message": "Click the puzzle piece next to the address bar, then the pin beside Vinted Republish FREE."
+  },
+  "uiPinAside": {
+    "message": "The icon opens your relisting volume, settings and listings waiting to be resumed."
+  },
+  "uiWardrobeTitle": {
+    "message": "Go to your own Vinted wardrobe"
+  },
+  "uiWardrobeText": {
+    "message": "Relist and Relist all appear in your own wardrobe, beside Vinted’s actions. Choose an item or start a batch."
+  },
+  "uiWardrobeAside": {
+    "message": "A complete local copy is checked before anything is deleted. If a step fails, find the item in Listings to republish."
+  },
+  "uiSafetyTitle": {
+    "message": "A copy here. Resume when you choose."
+  },
+  "uiSafetyText": {
+    "message": "The listing data and photos stay on this device. Resume manually after a Vinted pause or an extension update."
+  },
+  "uiLocalNote": {
+    "message": "Backups are local: export them before uninstalling the extension or clearing its data."
+  },
+  "uiRelist": {
+    "message": "Try republishing"
+  },
+  "uiItemPace": {
+    "message": "Delay between republishes"
+  },
+  "uiItemPaceText": {
+    "message": ""
+  },
+  "uiPauseRule": {
+    "message": ""
+  },
+  "uiSaveFailed": {
+    "message": "Could not save. Check the values and try again."
+  },
+  "uiReset": {
+    "message": "Restore defaults"
+  },
+  "uiResetCooldown": {
+    "message": "Reset cooldown"
+  },
+  "uiCooldownReset": {
+    "message": "The cooldown was reset."
+  },
+  "uiVolume": {
+    "message": "Relisting volume"
+  },
+  "uiLastHour": {
+    "message": "last hour"
+  },
+  "uiLastDay": {
+    "message": "last 24 hours"
+  },
+  "uiQueue": {
+    "message": "Queue"
+  },
+  "uiQueueEta": {
+    "message": "Due at {time}"
+  },
+  "uiQueueCancel": {
+    "message": "Remove from queue"
+  },
+  "uiQueueCancelAll": {
+    "message": "Cancel all"
+  },
+  "uiVolumeNote": {
+    "message": "Completed and verified republications."
+  },
+  "uiPauseTitle": {
+    "message": "Relisting paused"
+  },
+  "uiPauseUntil": {
+    "message": "Resume after {date}."
+  },
+  "uiRunning": {
+    "message": "Republishing"
+  },
+  "uiWaiting": {
+    "message": "Waiting to republish"
+  },
+  "uiPendingLead": {
+    "message": "Your saved listings, ready to resume at your own pace."
+  },
+  "uiEmptyTitle": {
+    "message": "You’re all caught up"
+  },
+  "uiEmptyText": {
+    "message": "Listings being republished and those encountering a problem will appear here. Their photos and details stay on this device."
+  },
+  "uiDetail": {
+    "message": "Listing details"
+  },
+  "uiClose": {
+    "message": "Close"
+  },
+  "uiBrand": {
+    "message": "Brand"
+  },
+  "uiSize": {
+    "message": "Size"
+  },
+  "uiCondition": {
+    "message": "Condition"
+  },
+  "uiColour": {
+    "message": "Colour"
+  },
+  "uiDescription": {
+    "message": "Description"
+  },
+  "uiCategory": {
+    "message": "Category"
+  },
+  "uiMaterial": {
+    "message": "Material"
+  },
+  "uiManufacturer": {
+    "message": "Manufacturer"
+  },
+  "uiModel": {
+    "message": "Model"
+  },
+  "uiAuthor": {
+    "message": "Author"
+  },
+  "uiBookTitle": {
+    "message": "Book title"
+  },
+  "uiIsbn": {
+    "message": "ISBN"
+  },
+  "uiExport": {
+    "message": "Export backup"
+  },
+  "uiImport": {
+    "message": "Import backup"
+  },
+  "uiFilter": {
+    "message": "Filter"
+  },
+  "uiFilterAll": {
+    "message": "All statuses"
+  },
+  "uiForget": {
+    "message": "Delete backup"
+  },
+  "uiConfirmDelete": {
+    "message": "Permanently delete this backup and its photos? Export it first if you want to keep a copy. This does not delete any Vinted listing."
+  },
+  "uiCancel": {
+    "message": "Cancel"
+  },
+  "uiImported": {
+    "message": "Backup imported."
+  },
+  "uiImportFailed": {
+    "message": "This backup cannot be imported or already exists."
+  },
+  "uiRetryOpened": {
+    "message": "Your Vinted wardrobe was opened to resume this listing. Sign in to the matching account."
+  },
+  "uiBackupComplete": {
+    "message": "Listing data and {count} photo(s) saved on this device."
+  },
+  "uiBackupPartial": {
+    "message": "Backup still to complete. This operation has not deleted the original."
+  },
+  "uiSavedLocally": {
+    "message": "Listing details saved locally"
+  },
+  "uiViewOriginal": {
+    "message": "View Vinted listing"
+  },
+  "uiNoPhoto": {
+    "message": "Photo unavailable"
+  },
+  "uiUnknownItem": {
+    "message": "Listing {id}"
+  },
+  "uiErrorGeneric": {
+    "message": "A step failed. Your listing is waiting for another attempt."
+  },
+  "uiErrorBlocked": {
+    "message": "Vinted interrupted requests. Wait until the pause ends before resuming."
+  },
+  "uiErrorSize": {
+    "message": "Update the size on Vinted before trying again."
+  },
+  "uiErrorAccount": {
+    "message": "Sign in to the Vinted account that owns this listing."
+  },
+  "uiErrorRestricted": {
+    "message": "This Vinted account appears to be temporarily restricted. The complete listing remains saved locally; try again after the restriction ends."
+  },
+  "uiErrorUncertain": {
+    "message": "Vinted’s response is missing. A retry first checks whether a copy already exists. The backup is kept."
+  },
+  "uiErrorPhotos": {
+    "message": "Not all photos could be transferred or verified."
+  },
+  "uiErrorChanged": {
+    "message": "The original changed since the backup. Check both listings on Vinted."
+  },
+  "uiErrorInterrupted": {
+    "message": "The operation was interrupted. You can resume it manually."
+  },
+  "uiErrorStorage": {
+    "message": "The backup could not be verified. Deletion is not allowed."
+  },
+  "uiErrorBusy": {
+    "message": "A republication is already running in another tab."
+  },
+  "uiErrorMissing": {
+    "message": "The original was not found and the backup is incomplete."
+  },
+  "uiErrorIneligible": {
+    "message": "This listing is sold, reserved, hidden or unavailable for relisting."
+  },
+  "uiErrorIntegrity": {
+    "message": "The copy does not yet match the backup. Check it on Vinted."
+  },
+  "uiErrorServerDown": {
+    "message": "Vinted returned a server error (5xx). Nothing was deleted; the listing stays pending and will be retried."
+  },
+  "uiErrorRejected": {
+    "message": "Vinted rejected a request (unexpected response). Nothing was deleted; retry, and check the item page if it persists."
+  },
+  "uiErrorBadResponse": {
+    "message": "Vinted returned an unreadable response. The step could not be confirmed; the backup is kept and the listing stays pending."
+  },
+  "uiErrorNetwork": {
+    "message": "The connection to Vinted failed during a read. Check your network, then try again. Nothing was changed."
+  },
+  "uiErrorIncomplete": {
+    "message": "The source listing is incomplete (missing title, category, condition or price). Complete it on Vinted before republishing."
+  },
+  "uiErrorCleanup": {
+    "message": "The copy cleanup could not be confirmed. No deletion was forced; check your wardrobe on Vinted."
+  },
+  "uiLoadFailed": {
+    "message": "Could not read extension data. Reload this page."
+  },
+  "uiNavReports": {
+    "message": "My reports"
+  },
+  "uiReportsLead": {
+    "message": "Find reports sent from this device and open their GitHub issue."
+  },
+  "uiReportingDisclosure": {
+    "message": "The filtered technical report is sent to Cloudflare and may then be published in a GitHub issue. No photo, backup, description, listing title, or listing ID is sent."
+  },
+  "uiSendReport": {
+    "message": "Send report for resolution"
+  },
+  "uiNavErrors": {
+    "message": "Failed listings"
+  },
+  "uiErrorsLead": {
+    "message": "Listings whose republish failed. Send the report to request a resolution, then track the GitHub issue state here."
+  },
+  "uiErrorsEmptyTitle": {
+    "message": "No failed listings"
+  },
+  "uiErrorsEmptyText": {
+    "message": "All your republishes succeeded. A listing that fails will show up here with its report."
+  },
+  "uiReportIssueTitle": {
+    "message": "GitHub issue"
+  },
+  "uiReportsHistory": {
+    "message": "Submitted reports"
+  },
+  "uiReportsPace": {
+    "message": "Statuses refresh only when you open or reload this page."
+  },
+  "uiReportSending": {
+    "message": "Sending…"
+  },
+  "uiReportDenied": {
+    "message": "Report not sent: permission declined."
+  },
+  "uiReportFailure": {
+    "message": "Delivery not confirmed. Your report stays on this device; you can retry manually."
+  },
+  "uiReportLimited": {
+    "message": "Service temporarily limited. Please try again later."
+  },
+  "uiReportOpen": {
+    "message": "Received"
+  },
+  "uiReportInvestigating": {
+    "message": "Under investigation"
+  },
+  "uiReportResolved": {
+    "message": "Resolved"
+  },
+  "uiReportsEmpty": {
+    "message": "No reports submitted from this device."
+  },
+  "uiReportUnavailable": {
+    "message": "Status temporarily unavailable; showing the last known state."
+  },
+  "uiReportCapacity": {
+    "message": "The local limit of 100 tracked reports has been reached. No new report was sent."
+  },
+  "uiDelayMinutes": {
+    "message": "Minutes"
+  },
+  "uiTransferDeletePace": {
+    "message": ""
+  },
+  "uiTransferDeletePaceText": {
+    "message": ""
+  },
+  "uiLimits": {
+    "message": "Republishing limits"
+  },
+  "uiLimitsText": {
+    "message": ""
+  },
+  "uiHourlyLimit": {
+    "message": "Maximum per hour"
+  },
+  "uiDailyLimit": {
+    "message": "Maximum per 24 hours"
+  },
+  "uiIncomplete": {
+    "message": "To complete"
+  },
+  "uiErrorLimit": {
+    "message": "The republishing limit has been reached. You can resume when the current period ends."
+  },
+  "uiCompleteRelist": {
+    "message": "Complete and republish"
+  },
+  "uiRepublishError": {
+    "message": "Republishing error"
+  },
+  "uiRepublishResolved": {
+    "message": "Resolved"
+  },
+  "uiResolveError": {
+    "message": "Mark error resolved manually"
+  },
+  "uiErrorPhotoLocalBackup": {
+    "message": "The local backup is incomplete: {backup} photo(s) saved out of {source}. The original listing was not deleted."
+  },
+  "uiErrorPhotoUploadCount": {
+    "message": "The upload is incomplete: {uploaded} photo(s) sent out of {backup} saved. The original listing was not deleted."
+  },
+  "uiErrorPhotoSourceBackupCount": {
+    "message": "The backup contains {backup} photo(s), while the source listing reported {source}. Republishing stopped before any deletion."
+  },
+  "uiErrorPhotoCreatedCount": {
+    "message": "The new listing was created, but Vinted returns {created} photo(s) although {uploaded} were uploaded. The original listing was kept."
+  },
+  "uiErrorPhotoCreatedIdentity": {
+    "message": "The new listing has the right number of photos, but Vinted does not confirm that they are the uploaded files. The original listing was kept."
+  },
+  "uiErrorPhotoSourceUrls": {
+    "message": "Vinted reports {source} photo(s), but not all photo addresses could be obtained. Backup and republishing stopped."
+  },
+  "uiErrorPhotoDownload": {
+    "message": "A downloaded photo is empty, too large, or is not recognized as an image. {backup} photo(s) out of {source} had already been saved."
+  },
+  "uiErrorPhotoUploadResponse": {
+    "message": "Vinted did not return an ID for the uploaded photo. {uploaded} photo(s) out of {backup} had been confirmed before stopping."
+  },
+  "uiErrorCreatedResponse": {
+    "message": "Vinted did not properly confirm the new listing during verification. The local backup and original listing were kept."
+  },
+  "uiErrorCreatedIdentity": {
+    "message": "The new listing did not receive a distinct, verifiable ID. Deletion of the original listing was cancelled."
+  },
+  "uiViewReport": {
+    "message": "View report"
+  },
+  "uiReportIssuePending": {
+    "message": "Creating the GitHub issue…"
+  },
+  "uiReportUnknownListing": {
+    "message": "Related listing unavailable"
+  },
+  "uiCleanupPending": {
+    "message": "Deletion of the new listing could not be confirmed. It may still be online. The extension has not deleted the original. Resume cleanup before republishing again."
+  },
+  "uiCopyRemoved": {
+    "message": "The new listing was deleted. The original and local backup were kept."
+  },
+  "uiCleanupCopy": {
+    "message": "Delete the new listing"
+  },
+  "uiViewNewCopy": {
+    "message": "View the new listing"
+  },
+  "uiReportsLoading": {
+    "message": "Refreshing reports…"
+  },
+  "uiReportsUpdated": {
+    "message": "Last refreshed"
+  },
+  "uiReportsResponse": {
+    "message": "Team response"
+  },
+  "uiSettingsNotice": {
+    "message": "Adjust delays and limits to space actions naturally and reduce the risk of automated activity being detected."
+  },
+  "uiResetField": {
+    "message": "Restore the default value"
+  },
+  "uiNavTransfer": {
+    "message": "Transfer"
+  },
+  "phasePhotos": {
+    "message": "Processing photos..."
+  },
+  "uiShowTransferButton": {
+    "message": "Show the “Transfer to another account” button"
+  },
+  "uiTransferDescription": {
+    "message": "[BETA] Transfer selected listings to another Vinted account: save their details and photos on this device, delete the listings from the source account, then sign in to the destination account to recreate them. Views and favourites are not retained."
+  },
+  "uiDeleteBackups": {
+    "message": "Delete"
+  },
+  "uiDeleteScope": {
+    "message": "Backups to delete"
+  },
+  "uiDeleteAllBackups": {
+    "message": "Delete all"
+  },
+  "uiDeleteResolvedBackups": {
+    "message": "Resolved listings"
+  },
+  "uiDeleteErrorBackups": {
+    "message": "Listings in error"
+  },
+  "uiBulkDeleteNotice": {
+    "message": "This permanently deletes local backups and their photos. No listings will be deleted on Vinted."
+  },
+  "uiBulkDeleteCount": {
+    "message": "{count} backup(s) to delete."
+  },
+  "uiBulkDeleteResult": {
+    "message": "{count} backup(s) deleted. {retained} retained because they were busy or could not be deleted."
+  }
+}

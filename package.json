@@ -1,0 +1,12 @@
+{
+  "name": "vinted-republish",
+  "version": "0.11.13",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/release-check.js && node --test tests/*.test.cjs",
+    "build": "npm test && sh scripts/build-release.sh"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "^6.2.5"
+  }
+}

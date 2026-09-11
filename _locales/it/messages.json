@@ -1,0 +1,487 @@
+{
+  "uiErrorPublicPageIncomplete": {
+    "message": "La pagina ricevuta è incompleta. Apri l’annuncio su Vinted, aggiorna e controlla l’accesso. Completa eventuali verifiche, poi riprova. Nessun annuncio è stato creato durante questo tentativo."
+  },
+  "extensionName": {
+    "message": "Vinted Republish FREE",
+    "description": "Public extension name."
+  },
+  "extensionShortName": {
+    "message": "Republish",
+    "description": "Short extension name."
+  },
+  "extensionDescription": {
+    "message": "Ripubblica uno o più annunci direttamente dal tuo armadio Vinted."
+  },
+  "uiNavHome": {
+    "message": "Benvenuto"
+  },
+  "uiNavSettings": {
+    "message": "Configurazione"
+  },
+  "uiNavPending": {
+    "message": "Annunci da ripubblicare"
+  },
+  "uiLanguage": {
+    "message": "Lingua"
+  },
+  "uiWelcomeTitle": {
+    "message": "Grazie per aver installato Vinted Republish"
+  },
+  "uiWelcomeLead": {
+    "message": "Ripubblica un annuncio senza ricominciare da zero. Due passaggi per trovare i pulsanti, con una copia salvata su questo dispositivo."
+  },
+  "uiPinTitle": {
+    "message": "Fissa l’estensione nella barra degli strumenti"
+  },
+  "uiPinText": {
+    "message": "Fai clic sul pezzo di puzzle accanto alla barra degli indirizzi, poi sulla puntina accanto a Vinted Republish FREE."
+  },
+  "uiPinAside": {
+    "message": "L’icona apre il volume delle ripubblicazioni, le impostazioni e gli annunci da riprendere."
+  },
+  "uiWardrobeTitle": {
+    "message": "Apri il tuo armadio Vinted"
+  },
+  "uiWardrobeText": {
+    "message": "I pulsanti Ripubblica e Ripubblica tutto appaiono nel tuo armadio, accanto alle azioni Vinted. Scegli un articolo o avvia un gruppo."
+  },
+  "uiWardrobeAside": {
+    "message": "Una copia locale completa viene verificata prima di qualsiasi eliminazione. Se un passaggio fallisce, ritrova l’articolo in Annunci da ripubblicare."
+  },
+  "uiSafetyTitle": {
+    "message": "Una copia qui. Riprendi quando vuoi."
+  },
+  "uiSafetyText": {
+    "message": "I dati e le foto restano su questo dispositivo. Riprendi manualmente dopo una pausa Vinted o un aggiornamento dell’estensione."
+  },
+  "uiLocalNote": {
+    "message": "Le copie sono locali: esportale prima di disinstallare l’estensione o cancellarne i dati."
+  },
+  "uiRelist": {
+    "message": "Prova a ripubblicare"
+  },
+  "uiItemPace": {
+    "message": "Intervallo tra ripubblicazioni"
+  },
+  "uiItemPaceText": {
+    "message": ""
+  },
+  "uiPauseRule": {
+    "message": ""
+  },
+  "uiSaveFailed": {
+    "message": "Impossibile salvare. Controlla i valori e riprova."
+  },
+  "uiReset": {
+    "message": "Valori predefiniti"
+  },
+  "uiResetCooldown": {
+    "message": "Reimposta il cooldown"
+  },
+  "uiCooldownReset": {
+    "message": "Il cooldown è stato reimpostato."
+  },
+  "uiVolume": {
+    "message": "Volume di ripubblicazione"
+  },
+  "uiLastHour": {
+    "message": "ultima ora"
+  },
+  "uiLastDay": {
+    "message": "ultime 24 ore"
+  },
+  "uiQueue": {
+    "message": "Coda"
+  },
+  "uiQueueEta": {
+    "message": "Previsto per le {time}"
+  },
+  "uiQueueCancel": {
+    "message": "Rimuovi dalla coda"
+  },
+  "uiQueueCancelAll": {
+    "message": "Annulla tutto"
+  },
+  "uiVolumeNote": {
+    "message": "Ripubblicazioni completate e verificate."
+  },
+  "uiPauseTitle": {
+    "message": "Ripubblicazione in pausa"
+  },
+  "uiPauseUntil": {
+    "message": "Riprendi dopo {date}."
+  },
+  "uiRunning": {
+    "message": "Ripubblicazione in corso"
+  },
+  "uiWaiting": {
+    "message": "In attesa di ripubblicazione"
+  },
+  "uiPendingLead": {
+    "message": "I tuoi annunci salvati, pronti da riprendere al tuo ritmo."
+  },
+  "uiEmptyTitle": {
+    "message": "È tutto aggiornato"
+  },
+  "uiEmptyText": {
+    "message": "Gli annunci in ripubblicazione e quelli con un problema appariranno qui. Le foto e i dati restano su questo dispositivo."
+  },
+  "uiDetail": {
+    "message": "Dettagli dell’annuncio"
+  },
+  "uiClose": {
+    "message": "Chiudi"
+  },
+  "uiBrand": {
+    "message": "Marca"
+  },
+  "uiSize": {
+    "message": "Taglia"
+  },
+  "uiCondition": {
+    "message": "Condizioni"
+  },
+  "uiColour": {
+    "message": "Colore"
+  },
+  "uiDescription": {
+    "message": "Descrizione"
+  },
+  "uiCategory": {
+    "message": "Categoria"
+  },
+  "uiMaterial": {
+    "message": "Materiale"
+  },
+  "uiManufacturer": {
+    "message": "Produttore"
+  },
+  "uiModel": {
+    "message": "Modello"
+  },
+  "uiAuthor": {
+    "message": "Autore"
+  },
+  "uiBookTitle": {
+    "message": "Titolo del libro"
+  },
+  "uiIsbn": {
+    "message": "ISBN"
+  },
+  "uiExport": {
+    "message": "Esporta copia"
+  },
+  "uiImport": {
+    "message": "Importa copia"
+  },
+  "uiFilter": {
+    "message": "Filtro"
+  },
+  "uiFilterAll": {
+    "message": "Tutti gli stati"
+  },
+  "uiForget": {
+    "message": "Elimina copia"
+  },
+  "uiConfirmDelete": {
+    "message": "Eliminare definitivamente questa copia e le sue foto? Esportala prima se vuoi conservarla. Nessun annuncio su Vinted verrà eliminato."
+  },
+  "uiCancel": {
+    "message": "Annulla"
+  },
+  "uiImported": {
+    "message": "Copia importata."
+  },
+  "uiImportFailed": {
+    "message": "Questa copia non può essere importata o esiste già."
+  },
+  "uiRetryOpened": {
+    "message": "Il tuo armadio Vinted è stato aperto per riprendere l’annuncio. Accedi all’account corrispondente."
+  },
+  "uiBackupComplete": {
+    "message": "Dati e {count} foto salvati su questo dispositivo."
+  },
+  "uiBackupPartial": {
+    "message": "Copia da completare. Questa operazione non ha eliminato l’originale."
+  },
+  "uiSavedLocally": {
+    "message": "Dettagli dell'annuncio salvati localmente"
+  },
+  "uiViewOriginal": {
+    "message": "Vedi l'annuncio Vinted"
+  },
+  "uiNoPhoto": {
+    "message": "Foto non disponibile"
+  },
+  "uiUnknownItem": {
+    "message": "Annuncio {id}"
+  },
+  "uiErrorGeneric": {
+    "message": "Un passaggio non è riuscito. L’annuncio resta in attesa di un nuovo tentativo."
+  },
+  "uiErrorBlocked": {
+    "message": "Vinted ha interrotto le richieste. Attendi la fine della pausa prima di riprendere."
+  },
+  "uiErrorSize": {
+    "message": "Aggiorna la taglia su Vinted prima di riprovare."
+  },
+  "uiErrorAccount": {
+    "message": "Accedi all’account Vinted proprietario di questo annuncio."
+  },
+  "uiErrorRestricted": {
+    "message": "Questo account Vinted sembra temporaneamente limitato. L’annuncio completo resta salvato localmente; riprova al termine della limitazione."
+  },
+  "uiErrorUncertain": {
+    "message": "Manca la risposta di Vinted. Un nuovo tentativo verifica prima se esiste già una copia. La copia locale viene conservata."
+  },
+  "uiErrorPhotos": {
+    "message": "Non è stato possibile trasferire o verificare tutte le foto."
+  },
+  "uiErrorChanged": {
+    "message": "L’originale è cambiato dopo il salvataggio. Controlla entrambi gli annunci su Vinted."
+  },
+  "uiErrorInterrupted": {
+    "message": "L’operazione è stata interrotta. Puoi riprenderla manualmente."
+  },
+  "uiErrorStorage": {
+    "message": "Impossibile verificare la copia. L’eliminazione non è consentita."
+  },
+  "uiErrorBusy": {
+    "message": "Una ripubblicazione è già in corso in un’altra scheda."
+  },
+  "uiErrorMissing": {
+    "message": "L’originale non è stato trovato e la copia è incompleta."
+  },
+  "uiErrorIneligible": {
+    "message": "Questo annuncio è venduto, riservato, nascosto o non disponibile per la ripubblicazione."
+  },
+  "uiErrorIntegrity": {
+    "message": "La copia non corrisponde ancora al salvataggio. Controllala su Vinted."
+  },
+  "uiErrorServerDown": {
+    "message": "Vinted ha restituito un errore del server (5xx). Nulla è stato eliminato; l’annuncio resta in attesa e verrà riprovato."
+  },
+  "uiErrorRejected": {
+    "message": "Vinted ha rifiutato una richiesta (risposta imprevista). Nulla è stato eliminato; riprova e controlla la scheda se persiste."
+  },
+  "uiErrorBadResponse": {
+    "message": "Vinted ha restituito una risposta illeggibile. Il passaggio non è stato confermato; il salvataggio è conservato e l’annuncio resta in attesa."
+  },
+  "uiErrorNetwork": {
+    "message": "La connessione a Vinted è fallita durante una lettura. Controlla la rete e riprova. Nulla è stato modificato."
+  },
+  "uiErrorIncomplete": {
+    "message": "L’annuncio di origine è incompleto (titolo, categoria, condizione o prezzo mancante). Completalo su Vinted prima di ripubblicare."
+  },
+  "uiErrorCleanup": {
+    "message": "La pulizia della copia non è stata confermata. Nessuna eliminazione forzata; controlla il tuo guardaroba su Vinted."
+  },
+  "uiLoadFailed": {
+    "message": "Impossibile leggere i dati dell’estensione. Ricarica la pagina."
+  },
+  "uiNavReports": {
+    "message": "Le mie segnalazioni"
+  },
+  "uiReportsLead": {
+    "message": "Trova i rapporti inviati da questo dispositivo e apri la relativa issue GitHub."
+  },
+  "uiReportingDisclosure": {
+    "message": "Il rapporto tecnico filtrato viene inviato a Cloudflare e può essere pubblicato in una issue GitHub. Non vengono inviate foto, backup, descrizioni, titoli o identificativi degli annunci."
+  },
+  "uiSendReport": {
+    "message": "Invia la segnalazione per la risoluzione"
+  },
+  "uiNavErrors": {
+    "message": "Annunci in errore"
+  },
+  "uiErrorsLead": {
+    "message": "Annunci la cui ripubblicazione non è riuscita. Invia la segnalazione per richiedere una risoluzione, poi segui qui lo stato dell’issue GitHub."
+  },
+  "uiErrorsEmptyTitle": {
+    "message": "Nessun annuncio in errore"
+  },
+  "uiErrorsEmptyText": {
+    "message": "Tutte le ripubblicazioni sono riuscite. Un annuncio che fallisce comparirà qui con la sua segnalazione."
+  },
+  "uiReportIssueTitle": {
+    "message": "Issue GitHub"
+  },
+  "uiReportsHistory": {
+    "message": "Segnalazioni inviate"
+  },
+  "uiReportsPace": {
+    "message": "Gli stati si aggiornano solo quando apri o ricarichi questa pagina."
+  },
+  "uiReportSending": {
+    "message": "Invio in corso…"
+  },
+  "uiReportDenied": {
+    "message": "Segnalazione non inviata: autorizzazione rifiutata."
+  },
+  "uiReportFailure": {
+    "message": "Invio non confermato. La segnalazione resta sul dispositivo; puoi riprovare manualmente."
+  },
+  "uiReportLimited": {
+    "message": "Servizio temporaneamente limitato. Riprova più tardi."
+  },
+  "uiReportOpen": {
+    "message": "Ricevuta"
+  },
+  "uiReportInvestigating": {
+    "message": "In fase di analisi"
+  },
+  "uiReportResolved": {
+    "message": "Risolta"
+  },
+  "uiReportsEmpty": {
+    "message": "Nessuna segnalazione inviata da questo dispositivo."
+  },
+  "uiReportUnavailable": {
+    "message": "Stato temporaneamente non disponibile; è mostrato l’ultimo stato noto."
+  },
+  "uiReportCapacity": {
+    "message": "È stato raggiunto il limite locale di 100 segnalazioni seguite. Nessuna nuova segnalazione è stata inviata."
+  },
+  "uiDelayMinutes": {
+    "message": "Minuti"
+  },
+  "uiTransferDeletePace": {
+    "message": ""
+  },
+  "uiTransferDeletePaceText": {
+    "message": ""
+  },
+  "uiLimits": {
+    "message": "Limiti di ripubblicazione"
+  },
+  "uiLimitsText": {
+    "message": ""
+  },
+  "uiHourlyLimit": {
+    "message": "Massimo per ora"
+  },
+  "uiDailyLimit": {
+    "message": "Massimo per 24 ore"
+  },
+  "uiIncomplete": {
+    "message": "Da completare"
+  },
+  "uiErrorLimit": {
+    "message": "Il limite di ripubblicazione è stato raggiunto. Potrai riprendere al termine del periodo."
+  },
+  "uiCompleteRelist": {
+    "message": "Completa e ripubblica"
+  },
+  "uiRepublishError": {
+    "message": "Errore di ripubblicazione"
+  },
+  "uiRepublishResolved": {
+    "message": "Risolto"
+  },
+  "uiResolveError": {
+    "message": "Segna l’errore come risolto manualmente"
+  },
+  "uiErrorPhotoLocalBackup": {
+    "message": "Il backup locale è incompleto: {backup} foto salvate su {source}. L’annuncio originale non è stato eliminato."
+  },
+  "uiErrorPhotoUploadCount": {
+    "message": "Il caricamento è incompleto: {uploaded} foto inviate su {backup} salvate. L’annuncio originale non è stato eliminato."
+  },
+  "uiErrorPhotoSourceBackupCount": {
+    "message": "Il backup contiene {backup} foto, mentre l’annuncio originale ne indicava {source}. La ripubblicazione è stata interrotta prima di qualsiasi eliminazione."
+  },
+  "uiErrorPhotoCreatedCount": {
+    "message": "Il nuovo annuncio è stato creato, ma Vinted restituisce {created} foto anche se ne sono state caricate {uploaded}. L’annuncio originale è stato conservato."
+  },
+  "uiErrorPhotoCreatedIdentity": {
+    "message": "Il nuovo annuncio contiene il numero corretto di foto, ma Vinted non conferma che siano i file caricati. L’annuncio originale è stato conservato."
+  },
+  "uiErrorPhotoSourceUrls": {
+    "message": "Vinted indica {source} foto, ma non è stato possibile ottenere tutti i relativi indirizzi. Il backup e la ripubblicazione sono stati interrotti."
+  },
+  "uiErrorPhotoDownload": {
+    "message": "Una foto scaricata è vuota, troppo grande o non viene riconosciuta come immagine. Erano già state salvate {backup} foto su {source}."
+  },
+  "uiErrorPhotoUploadResponse": {
+    "message": "Vinted non ha restituito l’identificativo della foto caricata. Erano state confermate {uploaded} foto su {backup} prima dell’interruzione."
+  },
+  "uiErrorCreatedResponse": {
+    "message": "Vinted non ha confermato correttamente il nuovo annuncio durante la verifica. Il backup locale e l’annuncio originale sono stati conservati."
+  },
+  "uiErrorCreatedIdentity": {
+    "message": "Il nuovo annuncio non ha ricevuto un identificativo distinto e verificabile. L’eliminazione dell’annuncio originale è stata annullata."
+  },
+  "uiViewReport": {
+    "message": "Visualizza il rapporto"
+  },
+  "uiReportIssuePending": {
+    "message": "Creazione della issue GitHub…"
+  },
+  "uiReportUnknownListing": {
+    "message": "Annuncio interessato non disponibile"
+  },
+  "uiCleanupPending": {
+    "message": "L’eliminazione del nuovo annuncio non è confermata. Potrebbe essere ancora online. L’estensione non ha eliminato l’originale. Riprendi la pulizia prima di ripubblicare."
+  },
+  "uiCopyRemoved": {
+    "message": "Il nuovo annuncio è stato eliminato. L’originale e il backup locale sono stati conservati."
+  },
+  "uiCleanupCopy": {
+    "message": "Elimina il nuovo annuncio"
+  },
+  "uiViewNewCopy": {
+    "message": "Vedi il nuovo annuncio"
+  },
+  "uiReportsLoading": {
+    "message": "Aggiornamento dei rapporti…"
+  },
+  "uiReportsUpdated": {
+    "message": "Ultimo aggiornamento"
+  },
+  "uiReportsResponse": {
+    "message": "Risposta del team"
+  },
+  "uiSettingsNotice": {
+    "message": "Regola gli intervalli e i limiti per distanziare naturalmente le azioni e ridurre il rischio di rilevamento di attività automatizzate."
+  },
+  "uiResetField": {
+    "message": "Ripristina il valore predefinito"
+  },
+  "uiNavTransfer": {
+    "message": "Trasferimento"
+  },
+  "phasePhotos": {
+    "message": "Elaborazione delle foto..."
+  },
+  "uiShowTransferButton": {
+    "message": "Mostra il pulsante “Trasferisci su un altro account”"
+  },
+  "uiTransferDescription": {
+    "message": "[BETA] Trasferisci gli annunci selezionati su un altro account Vinted: salva i dettagli e le foto su questo dispositivo, elimina gli annunci dall’account di origine, poi accedi all’account di destinazione per ricrearli. Visualizzazioni e preferiti non vengono conservati."
+  },
+  "uiDeleteBackups": {
+    "message": "Elimina"
+  },
+  "uiDeleteScope": {
+    "message": "Backup da eliminare"
+  },
+  "uiDeleteAllBackups": {
+    "message": "Elimina tutto"
+  },
+  "uiDeleteResolvedBackups": {
+    "message": "Annunci risolti"
+  },
+  "uiDeleteErrorBackups": {
+    "message": "Annunci in errore"
+  },
+  "uiBulkDeleteNotice": {
+    "message": "Questa operazione elimina definitivamente i backup locali e le foto. Nessun annuncio verrà eliminato su Vinted."
+  },
+  "uiBulkDeleteCount": {
+    "message": "{count} backup da eliminare."
+  },
+  "uiBulkDeleteResult": {
+    "message": "{count} backup eliminati. {retained} conservati perché in uso o non eliminabili."
+  }
+}

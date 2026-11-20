@@ -6,6 +6,7 @@
     return result.value;
   }
   NS.reporting = {
+    enabled: /^https:\/\/[^/?#]+$/.test(String(globalThis.REPORTING_ORIGIN || '')),
     // Call directly from the click listener: no await before permissions.request.
     sendFromGesture(timestamp) {
       const permission = chrome.permissions.request({ origins: [`${globalThis.REPORTING_ORIGIN}/*`] });

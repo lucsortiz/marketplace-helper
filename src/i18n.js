@@ -92,6 +92,9 @@
 
   Object.assign(UI_EN, {
     phaseBackup: 'Saving the local backup…', phaseCooldown: 'Republishing in {seconds}s…',
+    phaseCooldownLong: 'Republishing in {time}…',
+    bulkSkippedCooldownNotice: '{count} listing(s) skipped because they were republished recently.',
+    republishErrorItemCooldown: 'This listing was republished recently. Wait for the minimum period between relists of the same item.',
     pendingButton: 'Listings to republish',
     transferAccountButton: 'Transfer to another account',
     publicPageIncomplete: 'The listing page is incomplete. Open the listing on Vinted, refresh the page and check that you are signed in. Complete any verification shown, then retry.',
@@ -115,6 +118,9 @@
   });
   Object.assign(UI_FR, {
     phaseBackup: 'Sauvegarde locale…', phaseCooldown: 'Republication dans {seconds}s…',
+    phaseCooldownLong: 'Republication dans {time}…',
+    bulkSkippedCooldownNotice: '{count} annonce(s) ignorée(s) car republiée(s) récemment.',
+    republishErrorItemCooldown: 'Cette annonce a été republiée récemment. Attendez le délai minimum entre deux republications du même article.',
     pendingButton: 'Annonces à republier',
     transferAccountButton: 'Transférer vers un autre compte',
     publicPageIncomplete: 'La page de l’annonce est incomplète. Ouvrez l’annonce sur Vinted, actualisez la page et vérifiez votre connexion. Terminez toute vérification affichée, puis réessayez.',
@@ -157,6 +163,9 @@
     republishCopyRemovedNotice: 'La verifica non è riuscita. Il nuovo annuncio è stato eliminato; l’originale e il backup locale sono stati conservati.',
     republishCleanupPendingNotice: 'L’eliminazione del nuovo annuncio non è confermata: potrebbe essere ancora online. L’originale non è stato eliminato. Apri i dettagli per riprendere la pulizia.',
     phaseBackup: 'Salvataggio locale…', phaseCooldown: 'Ripubblicazione tra {seconds}s…',
+    phaseCooldownLong: 'Ripubblicazione tra {time}…',
+    bulkSkippedCooldownNotice: '{count} annuncio/i saltato/i perché ripubblicato/i di recente.',
+    republishErrorItemCooldown: 'Questo annuncio è stato ripubblicato di recente. Attendi il periodo minimo tra due ripubblicazioni dello stesso articolo.',
     pendingButton: 'Annunci da ripubblicare',
     transferAccountButton: 'Trasferisci su un altro account',
     publicPageIncomplete: 'La pagina è incompleta. Apri l’annuncio su Vinted, aggiorna la pagina e controlla la connessione al tuo account. Completa eventuali verifiche, poi riprova.',
@@ -178,9 +187,59 @@
     republishErrorPhotos: 'Non è stato possibile salvare o trasferire tutte le foto.', republishErrorStorage: 'Non è stato possibile verificare il backup locale.',
     republishErrorMissing: 'L’annuncio originale non è stato trovato.', republishErrorGeneric: 'Si è verificato un errore imprevisto.',
   };
+  const UI_ES = {
+    closeButton: 'Cerrar',
+    missingItemIdNotice: 'No se ha podido identificar el anuncio.',
+    collectingListings: 'Recopilando anuncios…',
+    confirmBulk: '¿Republicar los {count} anuncios activos?',
+    confirmBulkAdd: '¿Añadir {count} anuncios a la cola?',
+    confirmBulkResume: '¿Reanudar la preparación desde la página {page} de {pages} y después republicar los anuncios?',
+    bulkAlreadyQueued: 'Todos los anuncios activos ya se están republicando.',
+    bulkAllErrored: 'Los anuncios restantes están todos en error: revisa la página de errores para reanudarlos.',
+    bulkDuration: 'Tiempo estimado de republicación: unos {duration}, según los intervalos y límites de tu',
+    configurationLink: 'Configuración',
+    manualQueueWait: 'Cola {position}: a las {time}',
+    queueSummaryButton: 'Cola: {count} - Termina: {time}',
+    bulkNext: '{progress}: siguiente anuncio en {timer}',
+    bulkFinished: '{count}/{total} anuncios republicados.',
+    confirmButton: 'Republicar',
+    cancelButton: 'Cancelar',
+    phaseCollect: 'Recopilando…', phasePhotos: 'Procesando fotos...',
+    phaseCreate: 'Creando…',
+    phaseVerify: 'Verificando…',
+    phaseDelete: 'Eliminando el original…',
+    phaseCleanup: 'Eliminando la copia no verificada…',
+    republishCopyRemovedNotice: 'La verificación falló. Se eliminó el anuncio nuevo; el original y la copia local se conservan.',
+    republishCleanupPendingNotice: 'No se pudo confirmar la eliminación del anuncio nuevo y puede seguir en línea. El original no se ha eliminado. Abre los detalles para reanudar la limpieza.',
+    phaseBackup: 'Guardando la copia local…', phaseCooldown: 'Republicando en {seconds}s…',
+    phaseCooldownLong: 'Republicando en {time}…',
+    pendingButton: 'Anuncios por republicar',
+    transferAccountButton: 'Transferir a otra cuenta',
+    publicPageIncomplete: 'La página del anuncio está incompleta. Abre el anuncio en Vinted, recarga la página y comprueba que has iniciado sesión. Completa cualquier verificación que aparezca y vuelve a intentarlo.',
+    successButton: 'Republicado', retryButton: 'Reintentar',
+    bulkQueuedNotice: '{added} anuncio(s) nuevo(s) añadido(s) localmente de {total}.',
+    bulkCachedNotice: 'Los {total} anuncios del análisis reciente ya están en la cola local.',
+    bulkInterruptedNotice: 'El análisis se interrumpió tras {count} anuncios. Siguen guardados localmente; pulsa Republicar todo para reanudar.',
+    bulkSkippedCooldownNotice: '{count} anuncio(s) omitido(s) porque se republicaron hace poco.',
+    missingAccountNotice: 'No se ha podido identificar la cuenta del armario.',
+    preparingPage: 'Preparando {page}/{pages}…',
+    errorDetailsButton: 'Error: ver detalles', errorDetailsAction: 'Ver detalles',
+    republishFailureNotice: 'La republicación falló: {error} El anuncio y el error se han guardado localmente en Anuncios por republicar para que puedas reintentarlo más tarde.',
+    republishFailurePartialNotice: 'La republicación falló: {error} El error y la información disponible del anuncio se han guardado localmente en Anuncios por republicar para que puedas reintentarlo más tarde.',
+    republishErrorRestricted: 'Vinted rechaza las operaciones de la cuenta porque parece estar restringida temporalmente.',
+    republishErrorAuth: 'Vinted rechazó la autenticación. Recarga la página y comprueba la sesión antes de reintentarlo.',
+    republishErrorAccount: 'La cuenta de Vinted conectada no coincide con este anuncio.',
+    republishErrorRateLimit: 'Vinted ha limitado temporalmente las peticiones.', republishErrorAntiBot: 'Vinted bloqueó la petición con una comprobación anti-bot.',
+    republishErrorLimit: 'Se ha alcanzado tu límite de republicaciones por hora/día. Se reanudará cuando el límite se restablezca.',
+    republishErrorItemCooldown: 'Este anuncio se republicó hace poco. Espera al periodo mínimo entre republicaciones del mismo artículo.',
+    republishErrorBusy: 'Ya hay una republicación en curso en otra pestaña.',
+    republishErrorPhotos: 'No se pudieron guardar o transferir todas las fotos.', republishErrorStorage: 'No se pudo verificar la copia local.',
+    republishErrorMissing: 'No se encontró el anuncio original.', republishErrorGeneric: 'Ha fallado un paso inesperado.',
+  };
   Object.assign(STRINGS.en, UI_EN);
   Object.assign(STRINGS.fr, UI_EN, UI_FR);
   Object.assign(STRINGS.it, UI_EN, UI_IT);
+  Object.assign(STRINGS.es, UI_EN, UI_ES);
 
   // Repli par domaine (TLD → langue) si document.documentElement.lang est
   // absent ou non reconnu. Approximatif pour les pays multilingues (ex.

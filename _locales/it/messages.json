@@ -3,15 +3,15 @@
     "message": "La pagina ricevuta è incompleta. Apri l’annuncio su Vinted, aggiorna e controlla l’accesso. Completa eventuali verifiche, poi riprova. Nessun annuncio è stato creato durante questo tentativo."
   },
   "extensionName": {
-    "message": "Vinted Republish FREE",
+    "message": "Marketplace Helper",
     "description": "Public extension name."
   },
   "extensionShortName": {
-    "message": "Republish",
+    "message": "MP Helper",
     "description": "Short extension name."
   },
   "extensionDescription": {
-    "message": "Ripubblica uno o più annunci direttamente dal tuo armadio Vinted."
+    "message": "Strumento non ufficiale per ripubblicare i tuoi annunci Vinted a un ritmo sicuro. Non affiliato a Vinted."
   },
   "uiNavHome": {
     "message": "Benvenuto"
@@ -26,7 +26,7 @@
     "message": "Lingua"
   },
   "uiWelcomeTitle": {
-    "message": "Grazie per aver installato Vinted Republish"
+    "message": "Grazie per aver installato Marketplace Helper"
   },
   "uiWelcomeLead": {
     "message": "Ripubblica un annuncio senza ricominciare da zero. Due passaggi per trovare i pulsanti, con una copia salvata su questo dispositivo."
@@ -35,7 +35,7 @@
     "message": "Fissa l’estensione nella barra degli strumenti"
   },
   "uiPinText": {
-    "message": "Fai clic sul pezzo di puzzle accanto alla barra degli indirizzi, poi sulla puntina accanto a Vinted Republish FREE."
+    "message": "Clicca sul pezzo di puzzle accanto alla barra degli indirizzi, poi sulla puntina accanto a Marketplace Helper."
   },
   "uiPinAside": {
     "message": "L’icona apre il volume delle ripubblicazioni, le impostazioni e gli annunci da riprendere."
@@ -296,13 +296,13 @@
     "message": "Annunci in errore"
   },
   "uiErrorsLead": {
-    "message": "Annunci la cui ripubblicazione non è riuscita. Invia la segnalazione per richiedere una risoluzione, poi segui qui lo stato dell’issue GitHub."
+    "message": "Annunci la cui ripubblicazione non è riuscita. Dati e foto restano su questo dispositivo per verificarli e riprenderli."
   },
   "uiErrorsEmptyTitle": {
     "message": "Nessun annuncio in errore"
   },
   "uiErrorsEmptyText": {
-    "message": "Tutte le ripubblicazioni sono riuscite. Un annuncio che fallisce comparirà qui con la sua segnalazione."
+    "message": "Tutte le ripubblicazioni sono riuscite. Un annuncio non riuscito apparirà qui."
   },
   "uiReportIssueTitle": {
     "message": "Issue GitHub"
@@ -443,7 +443,7 @@
     "message": "Risposta del team"
   },
   "uiSettingsNotice": {
-    "message": "Regola gli intervalli e i limiti per distanziare naturalmente le azioni e ridurre il rischio di rilevamento di attività automatizzate."
+    "message": "Mantieni ritardi lunghi e limiti bassi. Vinted può limitare gli account che ripubblicano troppo spesso o a raffica; questo strumento non è ufficiale né affiliato a Vinted."
   },
   "uiResetField": {
     "message": "Ripristina il valore predefinito"
@@ -483,5 +483,35 @@
   },
   "uiBulkDeleteResult": {
     "message": "{count} backup eliminati. {retained} conservati perché in uso o non eliminabili."
+  },
+  "uiSafetyGuard": {
+    "message": "Protezione dell’account"
+  },
+  "uiSafetyGuardText": {
+    "message": "I termini di Vinted vietano di eliminare e ripubblicare lo stesso articolo più volte o in blocco. Queste impostazioni riducono il rischio di restrizione ma non lo eliminano."
+  },
+  "uiItemCooldownHours": {
+    "message": "Ore minime prima di ripubblicare lo stesso articolo"
+  },
+  "uiBreakEvery": {
+    "message": "Pausa lunga dopo questo numero di ripubblicazioni"
+  },
+  "uiBreakMinutes": {
+    "message": "Durata della pausa lunga (minuti)"
+  },
+  "uiQuietHours": {
+    "message": "Non ripubblicare nelle ore di quiete (ora locale)"
+  },
+  "uiQuietStart": {
+    "message": "Inizio ore di quiete (0–23)"
+  },
+  "uiQuietEnd": {
+    "message": "Fine ore di quiete (0–23)"
+  },
+  "uiConfirmForceReset": {
+    "message": "Questa pausa è stata causata da una restrizione Vinted o da un controllo anti-bot. Riprendere prima aumenta il rischio di una restrizione più lunga. Rimuoverla comunque?"
+  },
+  "uiErrorItemCooldown": {
+    "message": "Questo articolo è stato ripubblicato di recente. Attendi il periodo minimo tra due ripubblicazioni dello stesso articolo."
   }
 }

@@ -1,101 +1,86 @@
-# Vinted Republish FREE
+# Marketplace Helper
 
-Extension Chrome Manifest V3 pour republier des annonces Vinted depuis le dressing.
+Extensión de Chrome (Manifest V3) **no oficial** para republicar tus propios anuncios de Vinted desde tu armario, con copia de seguridad local y medidas para reducir el riesgo de restricción de la cuenta.
 
-Elle ajoute des actions de republication, conserve une sauvegarde locale avant toute operation destructive et permet d'envoyer volontairement un rapport technique filtre en cas d'erreur.
+> **No está afiliada a Vinted.** Las condiciones de uso de Vinted prohíben usar herramientas externas no autorizadas y borrar y volver a publicar el mismo artículo varias veces o en bloque. Usar esta extensión puede provocar restricciones o el cierre de la cuenta. Lee [docs/ANTI_BAN.md](docs/ANTI_BAN.md) antes de usarla.
 
-Version courante : **0.11.13**.
+Versión actual: **1.0.0** · Repositorio: <https://github.com/lucsortiz/marketplace-helper>
 
-## Fonctionnalites
+## Origen
 
-- **Republier** une annonce individuellement.
-- **Tout republier** les annonces d'un dressing avec file d'attente, pauses et limites locales.
-- Conserver une sauvegarde locale avec photos avant la suppression de l'original.
-- Reprendre ou inspecter les annonces en erreur depuis `pending.html`.
-- Exporter les sauvegardes et journaux locaux.
-- Preparer un transfert entre comptes via `transfert.html`.
-- Envoyer manuellement un rapport d'erreur au Worker Cloudflare de reporting.
+Este proyecto es un fork de una extensión existente de republicación para Vinted (el primer commit del repositorio contiene el código original). Se ha renombrado, se ha desactivado el envío remoto de informes de error (que iba a un servidor del autor original), se ha añadido el idioma español y se han reforzado los límites de ritmo.
 
-## Installation locale
+**Licencia:** el código original no incluye archivo de licencia. Antes de publicar en el Chrome Web Store hay que confirmar con el autor original bajo qué condiciones se puede redistribuir. Hasta entonces, publica solo en visibilidad privada o para pruebas.
+
+## Funciones
+
+- **Republicar** un anuncio desde su botón en el armario.
+- **Republicar todo**: cola con pausas aleatorias, límites por hora/día y pausas largas periódicas.
+- Copia local (datos + fotos) verificada **antes** de borrar el original.
+- Anuncios con error en `pending.html`: revisar, exportar, importar o reanudar.
+- Diagnóstico local en `logs.html`.
+- Transferencia entre cuentas (`transfert.html`, beta, oculta por defecto).
+- Idiomas de la interfaz: español, inglés, francés e italiano.
+
+## Protección de la cuenta (resumen)
+
+| Medida | Valor por defecto |
+|---|---|
+| Intervalo entre republicaciones | 6 min ± 50 % (3–9 min, aleatorio) |
+| Máximo por hora / por 24 h | 8 / 40 (topes duros: 20 / 150) |
+| Mismo artículo otra vez | no antes de 72 h (mínimo 24 h) |
+| Pausa larga | 20 min ± 50 % cada ~5 republicaciones |
+| Horas de descanso | 01:00–08:00 hora local |
+| Restricción de cuenta detectada | pausa ≥ 48 h |
+| Comprobación anti-bot detectada | pausa ≥ 6 h |
+| `429` de Vinted | pausa ≥ 15 min con crecimiento exponencial |
+
+Detalle, fuentes y razonamiento: [docs/ANTI_BAN.md](docs/ANTI_BAN.md).
+
+## Desarrollo
+
+Requisitos: Node.js 20+ y Chrome 148+.
 
 ```bash
 npm ci
-npm test
+npm test         # controles de release + tests sin red
+npm run build    # tests + dist/marketplace-helper-<versión>.zip
 ```
 
-Pour charger l'extension en developpement :
+Cargar en Chrome:
 
-1. Ouvrir `chrome://extensions`.
-2. Activer le mode developpeur.
-3. Cliquer sur **Load unpacked**.
-4. Selectionner le dossier `chrome-extension`.
+1. Abre `chrome://extensions` y activa el **Modo desarrollador**.
+2. Pulsa **Cargar descomprimida** y selecciona **la raíz de este repositorio**.
+3. Abre tu armario en Vinted (`/member/<tu-id>`): aparecerán los botones.
 
-## Build Chrome Web Store
+Prueba siempre con una cuenta de Vinted de pruebas, nunca con tu cuenta principal. Los tests automáticos no usan ninguna cuenta real.
 
-```bash
-npm run build
-```
+## Publicar en Chrome Web Store
 
-Le build execute les controles de release et les tests hors ligne, puis genere :
+Guía, textos de la ficha, justificación de permisos y prompts de las imágenes: [docs/STORE_LISTING.md](docs/STORE_LISTING.md).
 
-```text
-dist/vinted-republish-free-0.11.13.zip
-```
+El ZIP que se sube es el que genera `npm run build` en `dist/`. La política de privacidad es `privacy.html`; debe estar publicada en una URL pública.
 
-C'est ce fichier ZIP qu'il faut envoyer au Chrome Web Store.
+## Estructura
 
-## Securite du flux
-
-- L'original n'est supprime qu'apres creation et verification de la copie.
-- Les photos et champs metier sont sauvegardes localement avant republication.
-- Les reponses d'ecriture perdues ne sont pas rejouees aveuglement.
-- Une seule republication active est autorisee par origine Vinted.
-- Les limites horaires, journalieres, pauses `Retry-After` et refus `401/403/429` sont centralises dans le service worker.
-- Les sauvegardes sont locales au profil Chrome ; elles ne remplacent pas une sauvegarde disque ou un export manuel.
-
-## Reporting d'erreurs
-
-Le reporting est volontaire et passe par `https://reporting.vinted-republish.workers.dev`.
-
-Le Worker ne recoit pas :
-
-- le titre de l'annonce ;
-- la description ;
-- l'identifiant de l'annonce ;
-- les photos ;
-- les sauvegardes ;
-- les cookies ou jetons.
-
-Il recoit uniquement un diagnostic borne et filtre, puis le groupe dans D1 et le synchronise avec une issue GitHub automatique.
-
-`npm run build` fait un dry-run Wrangler. `npm run deploy` publie reellement le Worker.
-
-## Structure utile
-
-| Chemin | Role |
+| Ruta | Función |
 |---|---|
-| `manifest.json` | Permissions, scripts et pages MV3 |
-| `background.js` | Service worker, messages privilegies, reporting |
-| `src/config.js` | Endpoints Vinted embarques |
-| `src/content.js`, `src/dom.js` | Integration dans le dressing Vinted |
-| `src/coordinator.js` | Verrous, pauses, limites et transitions durables |
-| `src/republishEngine.js` | Ordre sauvegarde, creation, verification, suppression |
-| `src/jobStore.js` | IndexedDB et sauvegardes locales |
-| `src/pageFetch.js`, `src/bridge.js` | Transport reseau via la page Vinted |
-| `src/reportingService.js` | Envoi volontaire et suivi des recus |
-| `ui.js`, `ui.css` | Pages internes de l'extension |
-| `tests/` | Tests hors ligne |
+| `manifest.json` | Permisos, scripts y páginas MV3 |
+| `background.js` | Service worker: mensajes, cabeceras de Vinted, coordinador |
+| `src/coordinator.js` | Cola serial, bloqueos, **límites y protección anti-baneo** |
+| `src/republishEngine.js` | Orden copia → crear → verificar → borrar original |
+| `src/content.js`, `src/dom.js` | Botones y cola dentro del armario de Vinted |
+| `src/vintedApi.js`, `src/pageFetch.js`, `src/bridge.js` | Llamadas a la API interna de Vinted vía la página |
+| `src/jobStore.js` | IndexedDB con las copias locales |
+| `src/i18n.js`, `src/locale.js`, `_locales/` | Textos (contenido y páginas internas) |
+| `src/reporting*.js`, `src/errorReporter.js` | Informes de error locales; envío remoto desactivado |
+| `ui.js`, `*.html`, `ui.css` | Popup, ajustes, pendientes, bienvenida |
+| `scripts/release-check.js` | Reglas que el paquete debe cumplir |
+| `tests/` | Tests sin red (`node --test`) |
 
-## Commandes
+## Limitaciones
 
-```bash
-npm test
-npm run build
-```
-
-## Limites
-
-- L'API Vinted est interne et peut changer sans preavis.
-- Les vues, favoris et statistiques Vinted ne sont pas transferes.
-- Une taille obsolete doit etre corrigee sur Vinted avant republication.
-- Les tests automatises ne doivent pas utiliser de compte Vinted reel.
+- La API de Vinted es interna y puede cambiar sin aviso.
+- Las visitas, favoritos y estadísticas no se conservan al republicar.
+- Una talla obsoleta hay que corregirla en Vinted antes de republicar.
+- Ninguna medida garantiza que Vinted no restrinja la cuenta.

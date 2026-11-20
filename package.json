@@ -1,6 +1,6 @@
 {
-  "name": "vinted-republish",
-  "version": "0.11.13",
+  "name": "marketplace-helper",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "test": "node scripts/release-check.js && node --test tests/*.test.cjs",
@@ -8,5 +8,10 @@
   },
   "devDependencies": {
     "fake-indexeddb": "^6.2.5"
+  },
+  "description": "Unofficial Chrome extension to republish your own Vinted listings at a safe pace.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucsortiz/marketplace-helper.git"
   }
 }

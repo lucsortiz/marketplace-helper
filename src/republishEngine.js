@@ -236,6 +236,9 @@
       if (previousTrace()) trace.event('resume', { prior: true });
     }
     try {
+      // Refuse early (before taking the lease or touching Vinted) when this
+      // item was relisted recently. See coordinator.js itemCooldownUntil.
+      await NS.control('item-check', { itemId });
       for (;;) {
         if (cancelled()) throw fail('cancelled');
         const claim = await NS.control('acquire');
@@ -339,6 +342,12 @@
           try { await patch({ status: job.complete ? 'waiting' : 'incomplete', error: null, errorDetail: null, reportTimestamp: null }); } catch (_) {}
         }
         return { ok: false, cancelled: true, itemId, jobKey: key, backupComplete: Boolean(job?.complete) };
+      }
+      if (e?.code === 'item-cooldown' && !held) {
+        // Not a failure of the listing: drop the queued placeholder instead of
+        // recording an error, and let the caller show the cooldown message.
+        try { await NS.control('forget', { key, onlyIfQueued: true }); } catch (_) {}
+        return { ok: false, itemId, jobKey: key, backupComplete: Boolean(job?.complete), error: e };
       }
       const reportTimestamp = NS.reportError('republish', e, {
         itemId, newItemId: job?.newItemId, jobKey: key, listingTitle: job?.source?.title,

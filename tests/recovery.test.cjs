@@ -12,9 +12,12 @@ const origin = 'https://www.vinted.fr';
 const sender = { tab: { id: 1 }, documentId: 'doc-a', url: `${origin}/member/123`, frameId: 0 };
 const key = `${origin}|123|10`;
 const blob = () => new Blob(['image bytes'], { type: 'image/jpeg' });
+// Longer than the maximum randomized default item delay (6 min ± 50 % = 9 min).
+const ITEM_GAP = 10 * 60 * 1000;
 function env() {
   let now = 1_800_000_000_000;
-  const bag = {};
+  // Quiet hours depend on local time; they have dedicated tests in anti-ban.test.cjs.
+  const bag = { republish_control_v1: { settings: { quietHours: false } } };
   class Clock extends Date { static now() { return now; } }
   const ctx = vm.createContext({ console, Blob, TextEncoder, crypto, indexedDB: new IDBFactory(), Promise, Date: Clock, URL,
     chrome: { storage: { local: {
@@ -93,9 +96,9 @@ test('one persistent lock across tabs and worker restarts; expired owner cannot 
   e.advance(91000);
   await assert.rejects(e.call('request', { lease: claim.lease }), { code: 'lease-lost' });
 });
-test('default delay is 4.1–5.9 minutes after an attempt, persistent across calls', async () => {
+test('default delay is 3–9 minutes after an attempt, persistent across calls', async () => {
   const e = env(); const claim = await e.call('acquire'); await e.call('release', { lease: claim.lease });
-  const next = await e.call('acquire'); assert.ok(next.waitMs >= 246000 && next.waitMs <= 354000);
+  const next = await e.call('acquire'); assert.ok(next.waitMs >= 180000 && next.waitMs <= 540000);
 });
 test('request cadence is shared, and Retry-After is never shortened', async () => {
   const e = env(); await e.call('request'); const second = await e.call('request'); assert.ok(second.waitMs >= 500 && second.waitMs <= 2500);
@@ -150,7 +153,7 @@ test('incomplete created copy never deletes original or clears backup', async ()
 });
 test('lost create response is reconciled by uploaded photo IDs, never blindly recreated', async () => {
   const e = await engine({ loseCreate: true }); assert.equal((await e.run()).ok, false); assert.equal((await e.job()).stage, 'create-requested');
-  e.advance(400000); assert.equal((await e.run()).ok, true); assert.equal(e.stats().creations, 1); assert.equal(e.stats().deletions, 1);
+  e.advance(ITEM_GAP); assert.equal((await e.run()).ok, true); assert.equal(e.stats().creations, 1); assert.equal(e.stats().deletions, 1);
 });
 test('matching photo counts with different IDs deletes only the new copy and retains the backup', async () => {
   const e = await engine({ badIdentity: true });
@@ -170,7 +173,7 @@ test('cleanup refused by Vinted is durable and retry only cleans the existing co
   assert.equal(job.stage, 'rollback-requested'); assert.equal(job.newItemId, '20');
   assert.equal(job.rollbackCause.code, 'photos'); assert.equal(job.errorDetail.cleanupReason, 'rate-limit');
   assert.equal(e.stats().current.id, 10); assert.equal(e.stats().created.id, 20);
-  options.rejectCleanup = false; e.advance(400000);
+  options.rejectCleanup = false; e.advance(ITEM_GAP);
   assert.equal((await e.run()).error.code, 'photos');
   job = await e.job();
   assert.equal(job.stage, 'rolled-back'); assert.equal(e.stats().created, null);
@@ -186,7 +189,7 @@ test('successful cleanup POST with copy still visible stays pending and prevents
   const e = await engine({ badIdentity: true, keepCopy: true });
   assert.equal((await e.run()).error.code, 'cleanup-pending');
   assert.equal((await e.job()).errorDetail.cleanupReason, 'cleanup-unconfirmed');
-  e.advance(400000);
+  e.advance(ITEM_GAP);
   assert.equal((await e.run()).error.code, 'cleanup-pending');
   assert.equal(e.stats().creations, 1); assert.equal(e.stats().deletions, 0);
 });
@@ -196,7 +199,7 @@ test('copies left in created/error by an older version are cleaned before verify
   await e.ctx.JobStore.put({ ...await e.job(), stage: 'created', newItemId: '20', error: 'photos',
     errorDetail: { phase: 'verify', check: 'created-photo-identity' }, status: 'error' });
   e.NS.verifyCreatedItem = async () => { throw new Error('Must not reverify an abandoned copy'); };
-  e.advance(400000);
+  e.advance(ITEM_GAP);
   await e.run();
   assert.equal((await e.job()).stage, 'rolled-back'); assert.equal(e.stats().creations, 1);
   assert.deepEqual(e.stats().removedIds, ['20']);
@@ -213,7 +216,7 @@ test('cleanup interrupted after deletion resumes by reading absence, not issuing
   };
   assert.equal((await e.run()).error.code, 'cleanup-pending');
   assert.equal((await e.job()).stage, 'rollback-requested'); assert.equal(e.stats().created, null);
-  e.advance(400000); await e.run();
+  e.advance(ITEM_GAP); await e.run();
   assert.equal((await e.job()).stage, 'rolled-back'); assert.equal(e.stats().copyDeletions, 1); assert.equal(e.stats().creations, 1);
 });
 test('a failed cleanup-intent save prevents any deletion', async () => {
@@ -248,7 +251,7 @@ test('missing original or changed account prevents deleting the remaining copy d
 test('a failed verification after original deletion was requested must never clean up the copy', async () => {
   const e = await engine({ loseDelete: true }); await e.run();
   e.NS.verifyCreatedItem = async () => ({ ok: false, reason: 'unconfirmed' });
-  e.advance(400000); await e.run();
+  e.advance(ITEM_GAP); await e.run();
   assert.equal((await e.job()).stage, 'delete-requested'); assert.equal(e.stats().copyDeletions, 0);
   assert.equal(e.stats().created.id, 20);
 });
@@ -256,7 +259,7 @@ test('only an explicit later retry creates a replacement after completed cleanup
   const options = { badIdentity: true };
   const e = await engine(options); await e.run();
   assert.equal(e.stats().creations, 1);
-  options.badIdentity = false; e.advance(400000);
+  options.badIdentity = false; e.advance(ITEM_GAP);
   assert.equal((await e.run()).ok, true); assert.equal(e.stats().creations, 2);
   assert.equal(e.stats().copyDeletions, 1); assert.equal(e.stats().deletions, 1);
 });
@@ -274,7 +277,7 @@ test('cleanup cannot delete a reserved copy or a copy with a different owner', a
 test('cleanup never targets the original when the stored copy ID equals its ID', async () => {
   const e = await engine({ loseCreate: true }); await e.run();
   await e.ctx.JobStore.put({ ...await e.job(), stage: 'created', status: 'error', newItemId: '10' });
-  e.advance(400000); await e.run();
+  e.advance(ITEM_GAP); await e.run();
   assert.deepEqual(e.stats().removedIds, []); assert.equal((await e.job()).errorDetail.cleanupReason, 'unsafe-cleanup');
 });
 test('cancelling a cleanup countdown retains its durable journal and complete backup', async () => {
@@ -288,7 +291,7 @@ test('cancelling a cleanup countdown retains its durable journal and complete ba
   assert.equal(await e.ctx.JobStore.get(`${origin}|123|11`), undefined);
 });
 test('a local backup cannot overwrite a copy awaiting cleanup', async () => {
-  const e = await engine({ badIdentity: true, rejectCleanup: true }); await e.run(); e.advance(400000);
+  const e = await engine({ badIdentity: true, rejectCleanup: true }); await e.run(); e.advance(ITEM_GAP);
   const { lease } = await e.call('acquire');
   await assert.rejects(e.call('backup', { lease, accountId: '123', itemId: '10', source: makeSource(), blobs: [blob()] }), { code: 'uncertain' });
   assert.equal((await e.job()).stage, 'rollback-requested');
@@ -307,7 +310,7 @@ test('a creation response lost through the page bridge preserves the original an
   assert.equal((await e.job()).stage, 'create-requested');
   assert.equal((await e.job()).blobs.length, 2);
   assert.equal(e.stats().deletions, 0);
-  e.advance(400000);
+  e.advance(ITEM_GAP);
   assert.equal((await e.run()).ok, true);
   assert.equal(page.pageCalls.length, 1);
   assert.equal(e.stats().creations, 1); assert.equal(e.stats().deletions, 1);
@@ -345,7 +348,7 @@ test('direct creation through the bridge is verified before any original deletio
 test('lost delete response retains backup and resumes without a second creation', async () => {
   const e = await engine({ loseDelete: true }); assert.equal((await e.run()).ok, false);
   assert.equal((await e.job()).stage, 'delete-requested'); assert.equal((await e.job()).blobs.length, 2);
-  e.advance(400000); assert.equal((await e.run()).ok, true); assert.equal(e.stats().creations, 1); assert.equal(e.stats().deletions, 1);
+  e.advance(ITEM_GAP); assert.equal((await e.run()).ok, true); assert.equal(e.stats().creations, 1); assert.equal(e.stats().deletions, 1);
 });
 test('wrong account cannot publish a saved item', async () => {
   const e = await engine({ wrongAccount: true }); const result = await e.run(); assert.equal(result.error.code, 'account'); assert.equal(e.stats().uploads, 0); assert.equal(e.stats().deletions, 0);
@@ -533,7 +536,7 @@ test('a future cross-account job is represented but cannot run before the transf
 test('an uncertain creation without a unique match never creates a duplicate', async () => {
   const e = await engine({ loseCreate: true, hideCreated: true });
   assert.equal((await e.run()).ok, false);
-  e.advance(400000);
+  e.advance(ITEM_GAP);
   assert.equal((await e.run()).error.code, 'uncertain');
   assert.equal(e.stats().creations, 1); assert.equal(e.stats().deletions, 0);
   assert.equal((await e.job()).blobs.length, 2);
@@ -548,7 +551,7 @@ test('a resumed journal cannot substitute different business fields for the save
   await e.run();
   const job = await e.job(); job.expected.item.title = 'Different item';
   await e.ctx.JobStore.put(job);
-  e.advance(400000);
+  e.advance(ITEM_GAP);
   assert.equal((await e.run()).error.code, 'integrity');
   assert.equal(e.stats().creations, 1); assert.equal(e.stats().deletions, 0);
 });

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
   "short_name": "__MSG_extensionShortName__",
-  "version": "0.11.13",
+  "version": "1.0.0",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "minimum_chrome_version": "148",
@@ -29,7 +29,8 @@
         "icons/icon24.png",
         "_locales/fr/messages.json",
         "_locales/en/messages.json",
-        "_locales/it/messages.json"
+        "_locales/it/messages.json",
+        "_locales/es/messages.json"
       ],
       "matches": [
         "https://www.vinted.fr/*",
@@ -186,7 +187,7 @@
   "options_page": "options.html",
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Vinted Republish FREE",
+    "default_title": "Marketplace Helper",
     "default_icon": {
       "16": "icons/icon16.png",
       "24": "icons/icon24.png",
@@ -194,8 +195,5 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     }
-  },
-  "optional_host_permissions": [
-    "https://reporting.vinted-republish.workers.dev/*"
-  ]
+  }
 }

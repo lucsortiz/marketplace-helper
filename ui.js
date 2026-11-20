@@ -87,7 +87,7 @@
       storage: 'Storage', 'backup-missing': 'Storage', busy: 'Busy', missing: 'Missing', ineligible: 'Ineligible',
       network: 'Network', incomplete: 'Incomplete', 'unsafe-cleanup': 'Cleanup', 'cleanup-unconfirmed': 'Cleanup', 'original-missing': 'Cleanup',
       'http-server': 'ServerDown', http: 'Rejected', 'bad-response': 'BadResponse',
-      'hour-limit': 'Limit', 'day-limit': 'Limit' };
+      'hour-limit': 'Limit', 'day-limit': 'Limit', 'item-cooldown': 'ItemCooldown' };
     return t(`Error${map[code] || 'Generic'}`);
   }
   function detailedReason(job) {
@@ -144,7 +144,11 @@
     const reset = button(t('ResetCooldown'), async control => {
       control.disabled = true;
       try {
-        await NS.control('reset-cooldown');
+        // Pauses caused by a Vinted restriction or anti-bot check are kept
+        // unless the user explicitly confirms on the options page.
+        const strong = Object.values(state?.gates || {}).some(g => ['account-restricted', 'anti-bot'].includes(g.reason) && g.blockedUntil > Date.now());
+        const force = strong && page === 'options' && window.confirm(t('ConfirmForceReset'));
+        await NS.control('reset-cooldown', { force });
         state = await NS.control('state');
         paintPause();
         status('CooldownReset');
@@ -318,6 +322,8 @@
   }
   async function appendReportAction(job, info) {
     if (job.status !== 'error') return;
+    // Remote reporting is disabled unless REPORTING_ORIGIN is configured.
+    if (NS.reporting?.enabled === false) return;
     const { report, receipt } = await reportState(job);
     if (!report) return;
     const box = node('section', null, 'report-action');
@@ -383,6 +389,7 @@
     if (!receipt) return null;
     lastReceiptPoll = Date.now();
     const before = receiptSnapshot(receipt);
+    if (NS.reporting?.enabled === false) return receipt;
     try { await NS.reporting.getStatuses(true); }
     catch (_) { return receipt; }
     if (job.key !== detailKey) return null;
@@ -526,9 +533,15 @@
   }
   function fillSettings(cfg) {
     $('[name=showTransferButton]').checked = cfg.showTransferButton === true;
-    $('[name=itemDelay]').value = String(Math.round(Number(cfg.itemDelay ?? 5)));
-    $('[name=hourlyLimit]').value = String(Number(cfg.hourlyLimit ?? 12));
-    $('[name=dailyLimit]').value = String(Number(cfg.dailyLimit ?? 100));
+    $('[name=itemDelay]').value = String(Math.round(Number(cfg.itemDelay ?? 6)));
+    $('[name=hourlyLimit]').value = String(Number(cfg.hourlyLimit ?? 8));
+    $('[name=dailyLimit]').value = String(Number(cfg.dailyLimit ?? 40));
+    $('[name=itemCooldownHours]').value = String(Number(cfg.itemCooldownHours ?? 72));
+    $('[name=breakEvery]').value = String(Number(cfg.breakEvery ?? 5));
+    $('[name=breakMinutes]').value = String(Number(cfg.breakMinutes ?? 20));
+    $('[name=quietHours]').checked = cfg.quietHours !== false;
+    $('[name=quietStart]').value = String(Number(cfg.quietStart ?? 1));
+    $('[name=quietEnd]').value = String(Number(cfg.quietEnd ?? 8));
   }
   async function refresh() {
     if (refreshing) return;
@@ -561,7 +574,7 @@
     await NS.localeReady;
     const requestedDetail = page === 'pending' ? new URLSearchParams(location.search).get('detail') : '';
     installNavLabels();
-    document.title = `${t(page === 'welcome' ? 'NavHome' : page === 'options' ? 'NavSettings' : page === 'pending' ? 'NavErrors' : 'Volume')} · Vinted Republish FREE`;
+    document.title = `${t(page === 'welcome' ? 'NavHome' : page === 'options' ? 'NavSettings' : page === 'pending' ? 'NavErrors' : 'Volume')} · Marketplace Helper`;
     document.querySelectorAll('[data-language]').forEach(el => el.addEventListener('change', () => NS.setLocale(el.value).catch(() => status('SaveFailed'))));
     document.querySelectorAll('.nav a').forEach(a => { if (a.getAttribute('href') === `${page === 'options' ? 'options' : page}.html`) a.setAttribute('aria-current', 'page'); });
     if (page === 'popup') document.querySelectorAll('a[href$=".html"]').forEach(link => link.addEventListener('click', e => { e.preventDefault(); void chrome.tabs.create({ url: chrome.runtime.getURL(link.getAttribute('href')) }); }));
@@ -574,7 +587,9 @@
       const itemDelay = $('[name=itemDelay]');
       const hourlyLimit = $('[name=hourlyLimit]');
       const dailyLimit = $('[name=dailyLimit]');
-      const settingInputs = [itemDelay, hourlyLimit, dailyLimit];
+      const extraNames = ['itemCooldownHours', 'breakEvery', 'breakMinutes', 'quietStart', 'quietEnd'];
+      const settingInputs = [itemDelay, hourlyLimit, dailyLimit, ...extraNames.map(name => $(`[name=${name}]`))];
+      const quietHours = $('[name=quietHours]');
       const showTransferButton = $('[name=showTransferButton]');
       let saveTimer;
       const saveSettings = async () => {
@@ -582,20 +597,22 @@
         if (settingInputs.some(input => !input.reportValidity())) return;
         try {
           await NS.control('settings', { settings: {
-            showTransferButton: showTransferButton.checked, itemDelay: Number(itemDelay.value), hourlyLimit: Number(hourlyLimit.value), dailyLimit: Number(dailyLimit.value)
+            showTransferButton: showTransferButton.checked, itemDelay: Number(itemDelay.value), hourlyLimit: Number(hourlyLimit.value), dailyLimit: Number(dailyLimit.value),
+            quietHours: quietHours.checked, ...Object.fromEntries(extraNames.map(name => [name, Number($(`[name=${name}]`).value)]))
           } });
           $('#page-status').textContent = '';
         }
         catch (_) { status('SaveFailed'); }
       };
       showTransferButton.addEventListener('change', () => { void saveSettings(); });
+      quietHours.addEventListener('change', () => { void saveSettings(); });
       const scheduleSave = () => { clearTimeout(saveTimer); saveTimer = setTimeout(() => { void saveSettings(); }, 500); };
       $('#settings-form').addEventListener('submit', event => { event.preventDefault(); void saveSettings(); });
       settingInputs.forEach(input => {
         input.addEventListener('input', scheduleSave);
         input.addEventListener('change', () => { void saveSettings(); });
       });
-      const defaults = { itemDelay: 5, hourlyLimit: 12, dailyLimit: 100 };
+      const defaults = { itemDelay: 6, hourlyLimit: 8, dailyLimit: 40, itemCooldownHours: 72, breakEvery: 5, breakMinutes: 20, quietStart: 1, quietEnd: 8 };
       settingInputs.forEach(input => {
         const wrapper = node('span', null, 'setting-input');
         input.before(wrapper); wrapper.append(input);
@@ -617,7 +634,7 @@
       $('#detail-dialog').addEventListener('close', () => { detailKey = null; stopIssueChase(); revoke(modalUrls); });
       // One throttled sweep on load so every card's GitHub issue badge reflects
       // the latest state the worker knows; per-receipt cadence is respected.
-      NS.reporting.getStatuses(false).then(() => { gridSignature = null; return refresh(); }).catch(() => {});
+      if (NS.reporting?.enabled !== false) NS.reporting.getStatuses(false).then(() => { gridSignature = null; return refresh(); }).catch(() => {});
       if (requestedDetail) await openDetail(requestedDetail);
       installBulkDelete();
       $('#import-backup').onclick = () => $('#import-file').click();
@@ -632,7 +649,7 @@
     }
     document.addEventListener('republish:language', async () => {
       installNavLabels();
-      document.title = `${t(page === 'welcome' ? 'NavHome' : page === 'options' ? 'NavSettings' : page === 'pending' ? 'NavErrors' : 'Volume')} · Vinted Republish FREE`;
+      document.title = `${t(page === 'welcome' ? 'NavHome' : page === 'options' ? 'NavSettings' : page === 'pending' ? 'NavErrors' : 'Volume')} · Marketplace Helper`;
         if ($('#reset-cooldown')) $('#reset-cooldown').textContent = t('ResetCooldown');
         await refresh(); if (detailKey) await openDetail(detailKey, true);
     });

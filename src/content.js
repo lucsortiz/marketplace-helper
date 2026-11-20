@@ -113,6 +113,12 @@
       create: 'phaseCreate', verify: 'phaseVerify', delete: 'phaseDelete', cleanup: 'phaseCleanup', backup: 'phaseBackup', cooldown: 'phaseCooldown',
     };
     if (phase === 'photos' && NS.t) return NS.t('phasePhotos');
+    // Long waits (pauses, quiet hours) read better in hours/minutes.
+    if (phase === 'cooldown' && seconds >= 120) {
+      const minutes = Math.ceil(seconds / 60);
+      const time = minutes >= 60 ? `${Math.floor(minutes / 60)} h ${String(minutes % 60).padStart(2, '0')} min` : `${minutes} min`;
+      return message('phaseCooldownLong', { time });
+    }
     return keys[phase] ? message(keys[phase], { seconds }) : '';
   }
 
@@ -140,6 +146,7 @@
       'rate-limit': 'republishErrorRateLimit', 'anti-bot': 'republishErrorAntiBot', photos: 'republishErrorPhotos',
       storage: 'republishErrorStorage', 'backup-missing': 'republishErrorStorage', missing: 'republishErrorMissing',
       'hour-limit': 'republishErrorLimit', 'day-limit': 'republishErrorLimit', busy: 'republishErrorBusy',
+      'item-cooldown': 'republishErrorItemCooldown',
     };
     return message(keys[error?.code] || 'republishErrorGeneric');
   }
@@ -652,6 +659,7 @@
         const errored = accountJobs.some(job => job.status === 'error' && !job.resolved);
         if (inProgress) NS.showNotice(message('bulkAlreadyQueued'), 'success');
         else if (errored) NS.showNotice(message('bulkAllErrored'), 'error');
+        else if (scan?.skipped) NS.showNotice(message('bulkSkippedCooldownNotice', { count: scan.skipped }), 'success');
         else NS.showNotice(message('bulkFinished', { count: 0, total: 0 }), 'success');
         return;
       }
@@ -665,6 +673,7 @@
       const duration = minutes < 60 ? `${minutes} min` : `${Math.floor(minutes / 60)} h ${minutes % 60} min`;
       NS.setChipButtonText(btn, L.relistAllButton);
       const confirmed = await NS.showConfirmDialog(message(queue.length ? 'confirmBulkAdd' : 'confirmBulk', { count: jobs.length })
+        + (scan?.skipped ? '\n\n' + message('bulkSkippedCooldownNotice', { count: scan.skipped }) : '')
         + '\n\n' + message('bulkDuration', { duration }), { configuration: true });
       if (!confirmed) {
         // Only forget what this run itself just seeded — anything that was

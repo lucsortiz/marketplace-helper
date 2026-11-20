@@ -1,0 +1,518 @@
+{
+  "uiErrorPublicPageIncomplete": {
+    "message": "La página recibida está incompleta. Abre el anuncio en Vinted, recarga y comprueba que has iniciado sesión. Completa cualquier verificación que aparezca y vuelve a intentarlo. No se creó ningún anuncio en este intento."
+  },
+  "extensionName": {
+    "message": "Marketplace Helper",
+    "description": "Public extension name."
+  },
+  "extensionShortName": {
+    "message": "MP Helper",
+    "description": "Short extension name."
+  },
+  "extensionDescription": {
+    "message": "Herramienta no oficial para republicar tus anuncios de Vinted a un ritmo seguro. No afiliada a Vinted.",
+    "description": "Manifest and Chrome Web Store summary, maximum 132 characters."
+  },
+  "uiNavHome": {
+    "message": "Bienvenida"
+  },
+  "uiNavSettings": {
+    "message": "Ajustes"
+  },
+  "uiNavPending": {
+    "message": "Anuncios por republicar"
+  },
+  "uiLanguage": {
+    "message": "Idioma"
+  },
+  "uiWelcomeTitle": {
+    "message": "Gracias por instalar Marketplace Helper"
+  },
+  "uiWelcomeLead": {
+    "message": "Vuelve a publicar un artículo sin empezar de cero. Dos pasos para encontrar tus botones, con tus anuncios guardados en este dispositivo."
+  },
+  "uiPinTitle": {
+    "message": "Fija la extensión en la barra de herramientas"
+  },
+  "uiPinText": {
+    "message": "Haz clic en la pieza de puzle junto a la barra de direcciones y después en la chincheta junto a Marketplace Helper."
+  },
+  "uiPinAside": {
+    "message": "El icono abre tu volumen de republicaciones, los ajustes y los anuncios pendientes de reanudar."
+  },
+  "uiWardrobeTitle": {
+    "message": "Ve a tu propio armario de Vinted"
+  },
+  "uiWardrobeText": {
+    "message": "Republicar y Republicar todo aparecen en tu armario, junto a las acciones de Vinted. Elige un artículo o inicia un lote."
+  },
+  "uiWardrobeAside": {
+    "message": "Se comprueba una copia local completa antes de borrar nada. Si un paso falla, encontrarás el artículo en Anuncios por republicar."
+  },
+  "uiSafetyTitle": {
+    "message": "Una copia aquí. Reanuda cuando quieras."
+  },
+  "uiSafetyText": {
+    "message": "Los datos y las fotos del anuncio se quedan en este dispositivo. Reanuda manualmente tras una pausa de Vinted o una actualización de la extensión."
+  },
+  "uiLocalNote": {
+    "message": "Las copias son locales: expórtalas antes de desinstalar la extensión o borrar sus datos."
+  },
+  "uiRelist": {
+    "message": "Intentar republicar"
+  },
+  "uiItemPace": {
+    "message": "Intervalo entre republicaciones"
+  },
+  "uiItemPaceText": {
+    "message": ""
+  },
+  "uiPauseRule": {
+    "message": ""
+  },
+  "uiSaveFailed": {
+    "message": "No se pudo guardar. Revisa los valores y vuelve a intentarlo."
+  },
+  "uiReset": {
+    "message": "Restaurar valores por defecto"
+  },
+  "uiResetCooldown": {
+    "message": "Reiniciar la espera"
+  },
+  "uiCooldownReset": {
+    "message": "Se ha reiniciado la espera."
+  },
+  "uiVolume": {
+    "message": "Volumen de republicaciones"
+  },
+  "uiLastHour": {
+    "message": "última hora"
+  },
+  "uiLastDay": {
+    "message": "últimas 24 horas"
+  },
+  "uiQueue": {
+    "message": "Cola"
+  },
+  "uiQueueEta": {
+    "message": "Previsto a las {time}"
+  },
+  "uiQueueCancel": {
+    "message": "Quitar de la cola"
+  },
+  "uiQueueCancelAll": {
+    "message": "Cancelar todo"
+  },
+  "uiVolumeNote": {
+    "message": "Republicaciones completadas y verificadas."
+  },
+  "uiPauseTitle": {
+    "message": "Republicación en pausa"
+  },
+  "uiPauseUntil": {
+    "message": "Se reanuda después del {date}."
+  },
+  "uiRunning": {
+    "message": "Republicando"
+  },
+  "uiWaiting": {
+    "message": "Esperando para republicar"
+  },
+  "uiPendingLead": {
+    "message": "Tus anuncios guardados, listos para reanudar a tu ritmo."
+  },
+  "uiEmptyTitle": {
+    "message": "Todo al día"
+  },
+  "uiEmptyText": {
+    "message": "Aquí aparecerán los anuncios que se están republicando y los que tengan algún problema. Sus fotos y datos se quedan en este dispositivo."
+  },
+  "uiDetail": {
+    "message": "Detalles del anuncio"
+  },
+  "uiClose": {
+    "message": "Cerrar"
+  },
+  "uiBrand": {
+    "message": "Marca"
+  },
+  "uiSize": {
+    "message": "Talla"
+  },
+  "uiCondition": {
+    "message": "Estado"
+  },
+  "uiColour": {
+    "message": "Color"
+  },
+  "uiDescription": {
+    "message": "Descripción"
+  },
+  "uiCategory": {
+    "message": "Categoría"
+  },
+  "uiMaterial": {
+    "message": "Material"
+  },
+  "uiManufacturer": {
+    "message": "Fabricante"
+  },
+  "uiModel": {
+    "message": "Modelo"
+  },
+  "uiAuthor": {
+    "message": "Autor"
+  },
+  "uiBookTitle": {
+    "message": "Título del libro"
+  },
+  "uiIsbn": {
+    "message": "ISBN"
+  },
+  "uiExport": {
+    "message": "Exportar copia"
+  },
+  "uiImport": {
+    "message": "Importar copia"
+  },
+  "uiFilter": {
+    "message": "Filtrar"
+  },
+  "uiFilterAll": {
+    "message": "Todos los estados"
+  },
+  "uiForget": {
+    "message": "Eliminar copia"
+  },
+  "uiConfirmDelete": {
+    "message": "¿Eliminar definitivamente esta copia y sus fotos? Expórtala antes si quieres conservarla. Esto no elimina ningún anuncio de Vinted."
+  },
+  "uiCancel": {
+    "message": "Cancelar"
+  },
+  "uiImported": {
+    "message": "Copia importada."
+  },
+  "uiImportFailed": {
+    "message": "Esta copia no se puede importar o ya existe."
+  },
+  "uiRetryOpened": {
+    "message": "Se ha abierto tu armario de Vinted para reanudar este anuncio. Inicia sesión en la cuenta correspondiente."
+  },
+  "uiBackupComplete": {
+    "message": "Datos del anuncio y {count} foto(s) guardados en este dispositivo."
+  },
+  "uiBackupPartial": {
+    "message": "Copia pendiente de completar. Esta operación no ha eliminado el original."
+  },
+  "uiSavedLocally": {
+    "message": "Detalles del anuncio guardados localmente"
+  },
+  "uiViewOriginal": {
+    "message": "Ver anuncio en Vinted"
+  },
+  "uiNoPhoto": {
+    "message": "Foto no disponible"
+  },
+  "uiUnknownItem": {
+    "message": "Anuncio {id}"
+  },
+  "uiErrorGeneric": {
+    "message": "Ha fallado un paso. Tu anuncio espera otro intento."
+  },
+  "uiErrorBlocked": {
+    "message": "Vinted interrumpió las peticiones. Espera a que termine la pausa antes de reanudar."
+  },
+  "uiErrorSize": {
+    "message": "Actualiza la talla en Vinted antes de volver a intentarlo."
+  },
+  "uiErrorAccount": {
+    "message": "Inicia sesión en la cuenta de Vinted propietaria de este anuncio."
+  },
+  "uiErrorRestricted": {
+    "message": "Esta cuenta de Vinted parece estar restringida temporalmente. El anuncio completo sigue guardado localmente; inténtalo cuando termine la restricción."
+  },
+  "uiErrorUncertain": {
+    "message": "Falta la respuesta de Vinted. Un reintento comprobará primero si ya existe una copia. La copia local se conserva."
+  },
+  "uiErrorPhotos": {
+    "message": "No se pudieron transferir o verificar todas las fotos."
+  },
+  "uiErrorChanged": {
+    "message": "El original cambió desde la copia. Revisa ambos anuncios en Vinted."
+  },
+  "uiErrorInterrupted": {
+    "message": "La operación se interrumpió. Puedes reanudarla manualmente."
+  },
+  "uiErrorStorage": {
+    "message": "No se pudo verificar la copia. No se permite borrar."
+  },
+  "uiErrorBusy": {
+    "message": "Ya hay una republicación en curso en otra pestaña."
+  },
+  "uiErrorMissing": {
+    "message": "No se encontró el original y la copia está incompleta."
+  },
+  "uiErrorIneligible": {
+    "message": "Este anuncio está vendido, reservado, oculto o no disponible para republicar."
+  },
+  "uiErrorIntegrity": {
+    "message": "La copia aún no coincide con la copia de seguridad. Revísala en Vinted."
+  },
+  "uiErrorServerDown": {
+    "message": "Vinted devolvió un error de servidor (5xx). No se borró nada; el anuncio sigue pendiente y se reintentará."
+  },
+  "uiErrorRejected": {
+    "message": "Vinted rechazó una petición (respuesta inesperada). No se borró nada; reinténtalo y revisa la ficha del artículo si persiste."
+  },
+  "uiErrorBadResponse": {
+    "message": "Vinted devolvió una respuesta ilegible. No se pudo confirmar el paso; la copia se conserva y el anuncio sigue pendiente."
+  },
+  "uiErrorNetwork": {
+    "message": "Falló la conexión con Vinted durante una lectura. Revisa tu red y vuelve a intentarlo. No se cambió nada."
+  },
+  "uiErrorIncomplete": {
+    "message": "El anuncio original está incompleto (falta título, categoría, estado o precio). Complétalo en Vinted antes de republicar."
+  },
+  "uiErrorCleanup": {
+    "message": "No se pudo confirmar la limpieza de la copia. No se forzó ningún borrado; revisa tu armario en Vinted."
+  },
+  "uiLoadFailed": {
+    "message": "No se pudieron leer los datos de la extensión. Recarga esta página."
+  },
+  "uiNavReports": {
+    "message": "Mis informes"
+  },
+  "uiReportsLead": {
+    "message": "Informes enviados desde este dispositivo."
+  },
+  "uiReportingDisclosure": {
+    "message": ""
+  },
+  "uiSendReport": {
+    "message": "Enviar informe"
+  },
+  "uiNavErrors": {
+    "message": "Anuncios con error"
+  },
+  "uiErrorsLead": {
+    "message": "Anuncios cuya republicación falló. Sus datos y fotos se quedan en este dispositivo para que los revises y los reanudes."
+  },
+  "uiErrorsEmptyTitle": {
+    "message": "Ningún anuncio con error"
+  },
+  "uiErrorsEmptyText": {
+    "message": "Todas tus republicaciones han ido bien. Si alguna falla, aparecerá aquí."
+  },
+  "uiReportIssueTitle": {
+    "message": "Incidencia"
+  },
+  "uiReportsHistory": {
+    "message": "Informes enviados"
+  },
+  "uiReportsPace": {
+    "message": "Los estados solo se actualizan al abrir o recargar esta página."
+  },
+  "uiReportSending": {
+    "message": "Enviando…"
+  },
+  "uiReportDenied": {
+    "message": "Informe no enviado: permiso denegado."
+  },
+  "uiReportFailure": {
+    "message": "Envío no confirmado. Tu informe se queda en este dispositivo; puedes reintentarlo manualmente."
+  },
+  "uiReportLimited": {
+    "message": "Servicio limitado temporalmente. Inténtalo más tarde."
+  },
+  "uiReportOpen": {
+    "message": "Recibido"
+  },
+  "uiReportInvestigating": {
+    "message": "En revisión"
+  },
+  "uiReportResolved": {
+    "message": "Resuelto"
+  },
+  "uiReportsEmpty": {
+    "message": "No se ha enviado ningún informe desde este dispositivo."
+  },
+  "uiReportUnavailable": {
+    "message": "Estado no disponible temporalmente; se muestra el último conocido."
+  },
+  "uiReportCapacity": {
+    "message": "Se alcanzó el límite local de 100 informes. No se envió ningún informe nuevo."
+  },
+  "uiDelayMinutes": {
+    "message": "Minutos"
+  },
+  "uiTransferDeletePace": {
+    "message": ""
+  },
+  "uiTransferDeletePaceText": {
+    "message": ""
+  },
+  "uiLimits": {
+    "message": "Límites de republicación"
+  },
+  "uiLimitsText": {
+    "message": ""
+  },
+  "uiHourlyLimit": {
+    "message": "Máximo por hora"
+  },
+  "uiDailyLimit": {
+    "message": "Máximo por 24 horas"
+  },
+  "uiIncomplete": {
+    "message": "Por completar"
+  },
+  "uiErrorLimit": {
+    "message": "Se alcanzó el límite de republicación. Puedes reanudar cuando termine el periodo actual."
+  },
+  "uiCompleteRelist": {
+    "message": "Completar y republicar"
+  },
+  "uiRepublishError": {
+    "message": "Error de republicación"
+  },
+  "uiRepublishResolved": {
+    "message": "Resuelto"
+  },
+  "uiResolveError": {
+    "message": "Marcar el error como resuelto manualmente"
+  },
+  "uiErrorPhotoLocalBackup": {
+    "message": "La copia local está incompleta: {backup} foto(s) guardada(s) de {source}. El anuncio original no se eliminó."
+  },
+  "uiErrorPhotoUploadCount": {
+    "message": "La subida está incompleta: {uploaded} foto(s) enviada(s) de {backup} guardada(s). El anuncio original no se eliminó."
+  },
+  "uiErrorPhotoSourceBackupCount": {
+    "message": "La copia contiene {backup} foto(s), pero el anuncio original indicaba {source}. La republicación se detuvo antes de borrar nada."
+  },
+  "uiErrorPhotoCreatedCount": {
+    "message": "Se creó el anuncio nuevo, pero Vinted devuelve {created} foto(s) aunque se subieron {uploaded}. Se conservó el anuncio original."
+  },
+  "uiErrorPhotoCreatedIdentity": {
+    "message": "El anuncio nuevo tiene el número correcto de fotos, pero Vinted no confirma que sean los archivos subidos. Se conservó el anuncio original."
+  },
+  "uiErrorPhotoSourceUrls": {
+    "message": "Vinted indica {source} foto(s), pero no se pudieron obtener todas sus direcciones. Se detuvieron la copia y la republicación."
+  },
+  "uiErrorPhotoDownload": {
+    "message": "Una foto descargada está vacía, es demasiado grande o no se reconoce como imagen. Ya se habían guardado {backup} foto(s) de {source}."
+  },
+  "uiErrorPhotoUploadResponse": {
+    "message": "Vinted no devolvió un ID para la foto subida. Se habían confirmado {uploaded} foto(s) de {backup} antes de detenerse."
+  },
+  "uiErrorCreatedResponse": {
+    "message": "Vinted no confirmó correctamente el anuncio nuevo durante la verificación. Se conservaron la copia local y el anuncio original."
+  },
+  "uiErrorCreatedIdentity": {
+    "message": "El anuncio nuevo no recibió un ID distinto y verificable. Se canceló el borrado del original."
+  },
+  "uiViewReport": {
+    "message": "Ver informe"
+  },
+  "uiReportIssuePending": {
+    "message": "Creando la incidencia…"
+  },
+  "uiReportUnknownListing": {
+    "message": "Anuncio relacionado no disponible"
+  },
+  "uiCleanupPending": {
+    "message": "No se pudo confirmar el borrado del anuncio nuevo; puede seguir en línea. La extensión no ha borrado el original. Reanuda la limpieza antes de volver a republicar."
+  },
+  "uiCopyRemoved": {
+    "message": "Se eliminó el anuncio nuevo. Se conservaron el original y la copia local."
+  },
+  "uiCleanupCopy": {
+    "message": "Eliminar el anuncio nuevo"
+  },
+  "uiViewNewCopy": {
+    "message": "Ver el anuncio nuevo"
+  },
+  "uiReportsLoading": {
+    "message": "Actualizando informes…"
+  },
+  "uiReportsUpdated": {
+    "message": "Última actualización"
+  },
+  "uiReportsResponse": {
+    "message": "Respuesta del equipo"
+  },
+  "uiSettingsNotice": {
+    "message": "Mantén intervalos largos y límites bajos. Vinted puede restringir las cuentas que republican demasiado o en ráfagas; esta herramienta es no oficial y no está afiliada a Vinted."
+  },
+  "uiResetField": {
+    "message": "Restaurar el valor por defecto"
+  },
+  "uiNavTransfer": {
+    "message": "Transferencia"
+  },
+  "phasePhotos": {
+    "message": "Procesando fotos..."
+  },
+  "uiShowTransferButton": {
+    "message": "Mostrar el botón «Transferir a otra cuenta»"
+  },
+  "uiTransferDescription": {
+    "message": "[BETA] Transfiere los anuncios seleccionados a otra cuenta de Vinted: guarda sus datos y fotos en este dispositivo, elimina los anuncios de la cuenta de origen y luego inicia sesión en la cuenta de destino para recrearlos. No se conservan visitas ni favoritos."
+  },
+  "uiDeleteBackups": {
+    "message": "Eliminar"
+  },
+  "uiDeleteScope": {
+    "message": "Copias a eliminar"
+  },
+  "uiDeleteAllBackups": {
+    "message": "Eliminar todas"
+  },
+  "uiDeleteResolvedBackups": {
+    "message": "Anuncios resueltos"
+  },
+  "uiDeleteErrorBackups": {
+    "message": "Anuncios con error"
+  },
+  "uiBulkDeleteNotice": {
+    "message": "Esto elimina definitivamente las copias locales y sus fotos. No se eliminará ningún anuncio en Vinted."
+  },
+  "uiBulkDeleteCount": {
+    "message": "{count} copia(s) a eliminar."
+  },
+  "uiBulkDeleteResult": {
+    "message": "{count} copia(s) eliminada(s). {retained} conservada(s) porque estaban en uso o no se pudieron eliminar."
+  },
+  "uiSafetyGuard": {
+    "message": "Protección de la cuenta"
+  },
+  "uiSafetyGuardText": {
+    "message": "Las condiciones de Vinted prohíben borrar y volver a publicar el mismo artículo varias veces o en bloque. Estos ajustes reducen el riesgo de restricción, pero no lo eliminan."
+  },
+  "uiItemCooldownHours": {
+    "message": "Horas mínimas antes de republicar el mismo artículo"
+  },
+  "uiBreakEvery": {
+    "message": "Pausa larga tras este número de republicaciones"
+  },
+  "uiBreakMinutes": {
+    "message": "Duración de la pausa larga (minutos)"
+  },
+  "uiQuietHours": {
+    "message": "No republicar en horas de descanso (hora local)"
+  },
+  "uiQuietStart": {
+    "message": "Inicio de las horas de descanso (0–23)"
+  },
+  "uiQuietEnd": {
+    "message": "Fin de las horas de descanso (0–23)"
+  },
+  "uiConfirmForceReset": {
+    "message": "Esta pausa la causó una restricción de Vinted o una comprobación anti-bot. Reanudar antes aumenta el riesgo de una restricción más larga. ¿Quitarla igualmente?"
+  },
+  "uiErrorItemCooldown": {
+    "message": "Este artículo se republicó hace poco. Espera al periodo mínimo entre republicaciones del mismo artículo."
+  }
+}

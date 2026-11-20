@@ -6,6 +6,8 @@ const path = require('path');
 const childProcess = require('child_process');
 
 const root = path.resolve(__dirname, '..');
+// Public name of this fork. Keep in sync with _locales/*/messages.json and manifest action.default_title.
+const PUBLIC_NAME = 'Marketplace Helper';
 const failures = [];
 
 function read(relativePath) {
@@ -64,7 +66,7 @@ for (const pattern of (manifest.host_permissions || [])) {
   }
 }
 
-for (const locale of ['en', 'fr', 'it']) {
+for (const locale of ['en', 'fr', 'it', 'es']) {
   const localePath = `_locales/${locale}/messages.json`;
   requireFile(localePath);
   if (!fs.existsSync(path.join(root, localePath))) continue;
@@ -76,9 +78,10 @@ for (const locale of ['en', 'fr', 'it']) {
       if (!messages[key] || !messages[key].message) failures.push(`${localePath} is missing ${key}.`);
     }
     const description = messages.extensionDescription && messages.extensionDescription.message;
-    if (messages.extensionName && messages.extensionName.message !== 'Vinted Republish FREE') {
-      failures.push(`${localePath} must use the public name Vinted Republish FREE.`);
+    if (messages.extensionName && messages.extensionName.message !== PUBLIC_NAME) {
+      failures.push(`${localePath} must use the public name ${PUBLIC_NAME}.`);
     }
+    if (description && !/Vinted/.test(description)) failures.push(`${localePath} description should say which site it works with.`);
     if (description && [...description].length > 132) failures.push(`${localePath} description exceeds 132 characters.`);
   } catch (error) {
     failures.push(`${localePath} is invalid: ${error.message}`);
@@ -113,10 +116,14 @@ const publicText = [
   ...(fs.existsSync(path.join(root, 'STORE_SUBMISSION.md')) ? [read('STORE_SUBMISSION.md')] : []),
   read('_locales/en/messages.json'),
   read('_locales/fr/messages.json'),
+  read('_locales/it/messages.json'),
+  read('_locales/es/messages.json'),
+  ...['popup.html', 'pending.html', 'welcome.html', 'logs.html', 'transfert.html', 'ui.js'].map(read),
 ].join('\n');
-if (/Relister for Vinted|Republier pour Vinted/.test(publicText)) {
-  failures.push('A legacy public extension name remains. Use Vinted Republish FREE everywhere.');
+if (/Relister for Vinted|Republier pour Vinted|Vinted Republish FREE|vinted-republish@proton\.me|vinted-republish\.workers\.dev/.test(publicText)) {
+  failures.push(`A name or contact of the original project remains. Use ${PUBLIC_NAME} and this fork's own contact everywhere.`);
 }
+if (manifest.action?.default_title !== PUBLIC_NAME) failures.push(`manifest action.default_title must be ${PUBLIC_NAME}.`);
 if (/window\.confirm\s*\(/.test(contentSource)) failures.push('Native confirmation dialogs must not be used.');
 if (/vinted:getSettings|bulkLimit/.test(contentSource)) failures.push('A bulk limit remains in src/content.js.');
 if (!manifest.action?.default_popup) failures.push('The extension popup is missing.');
@@ -155,7 +162,7 @@ if (!contentSource.includes("cancelIcon.textContent = '❌'") || !contentSource.
   failures.push('The republish cooldown must expose the red-cross cancellation control.');
 }
 if (!contentSource.includes(".append(cancelIcon)") || !read('ui.js').includes('installCooldownReset') ||
-    !read('ui.js').includes("NS.control('reset-cooldown')") || !read('src/coordinator.js').includes("case 'reset-cooldown'")) {
+    !read('ui.js').includes("NS.control('reset-cooldown'") || !read('src/coordinator.js').includes("case 'reset-cooldown'")) {
   failures.push('Cooldown reset controls must be available in options and popup, and the cancel cross must follow the countdown label.');
 }
 if (/fetchWardrobeAndAnnotate|republishItemById/.test(contentSource)) {
@@ -194,8 +201,20 @@ if (/Base64|arrayBufferToBase64|fetchImageBase64/.test(backgroundSource + read('
   failures.push('Legacy Base64 photo serialization remains in the package.');
 }
 
-const reportingOrigin = 'https://reporting.vinted-republish.workers.dev/*';
-if (!manifest.optional_host_permissions?.includes(reportingOrigin) || manifest.host_permissions?.includes(reportingOrigin)) failures.push('Reporting permission must be optional and exact.');
+// Remote reporting is disabled unless src/reportingConfig.js sets an origin.
+const reportingConfigured = (read('src/reportingConfig.js').match(/REPORTING_ORIGIN\s*=\s*'([^']*)'/) || [])[1] || '';
+if (reportingConfigured) {
+  const reportingOrigin = `${reportingConfigured}/*`;
+  if (!manifest.optional_host_permissions?.includes(reportingOrigin) || manifest.host_permissions?.includes(reportingOrigin)) failures.push('Reporting permission must be optional and exact.');
+} else if ((manifest.optional_host_permissions || []).length) {
+  failures.push('Reporting is disabled: remove optional_host_permissions from manifest.json.');
+}
+// Account-protection guards (see docs/ANTI_BAN.md). They must not be removed silently.
+const coordinatorSource = read('src/coordinator.js');
+for (const marker of ["case 'item-check'", 'function quietWaitMs', 'RESTRICTED_PAUSE_MS', 'ANTI_BOT_PAUSE_MS', 'const CAPS', 'itemSpread(']) {
+  if (!coordinatorSource.includes(marker)) failures.push(`Account-protection guard missing from src/coordinator.js: ${marker}`);
+}
+if (!read('src/republishEngine.js').includes("NS.control('item-check'")) failures.push('The republish engine must check the per-item cooldown before acquiring a lease.');
 if (/healthchecks\.io|hc-ping\.com|reportToken/.test(read('src/config.js') + read('src/errorReporter.js'))) failures.push('Obsolete reporting integration.');
 if (!read('src/reportingClient.js').includes('chrome.permissions.request')) failures.push('Manual reporting permission is missing.');
 if (fs.existsSync(path.join(root, 'reports.html')) || fs.existsSync(path.join(root, 'reports-ui.js'))) {

@@ -3,15 +3,15 @@
     "message": "La page reçue est incomplète. Ouvrez l’annonce sur Vinted, actualisez la page et vérifiez votre connexion. Terminez toute vérification affichée, puis réessayez. Aucune annonce n’a été créée lors de cette tentative."
   },
   "extensionName": {
-    "message": "Vinted Republish FREE",
+    "message": "Marketplace Helper",
     "description": "Nom public de l’extension."
   },
   "extensionShortName": {
-    "message": "Republish",
+    "message": "MP Helper",
     "description": "Nom court de l’extension."
   },
   "extensionDescription": {
-    "message": "Republiez une ou plusieurs annonces directement depuis votre dressing Vinted.",
+    "message": "Outil non officiel pour republier vos annonces Vinted à un rythme sûr. Non affilié à Vinted.",
     "description": "Résumé du manifeste et du Chrome Web Store, 132 caractères maximum."
   },
   "uiNavHome": {
@@ -27,7 +27,7 @@
     "message": "Langue"
   },
   "uiWelcomeTitle": {
-    "message": "Merci d’avoir installé Vinted Republish"
+    "message": "Merci d’avoir installé Marketplace Helper"
   },
   "uiWelcomeLead": {
     "message": "Republier une annonce, sans tout recommencer. Deux étapes pour retrouver vos boutons, et vos annonces restent sauvegardées sur cet appareil."
@@ -36,7 +36,7 @@
     "message": "Épinglez l’extension dans votre barre d’outils"
   },
   "uiPinText": {
-    "message": "Cliquez sur la pièce de puzzle à côté de la barre d’adresse, puis sur l’épingle à côté de Vinted Republish FREE."
+    "message": "Cliquez sur la pièce de puzzle à côté de la barre d’adresse, puis sur l’épingle à côté de Marketplace Helper."
   },
   "uiPinAside": {
     "message": "L’icône donne accès à votre volume de republication, à la configuration et aux annonces à reprendre."
@@ -297,13 +297,13 @@
     "message": "Annonces en erreur"
   },
   "uiErrorsLead": {
-    "message": "Les annonces dont la republication a échoué. Envoyez le rapport pour demander une résolution, puis suivez ici l’état de l’issue GitHub."
+    "message": "Annonces dont la republication a échoué. Leurs données et photos restent sur cet appareil pour les vérifier et les reprendre."
   },
   "uiErrorsEmptyTitle": {
     "message": "Aucune annonce en erreur"
   },
   "uiErrorsEmptyText": {
-    "message": "Toutes vos republications ont abouti. Une annonce qui échoue apparaîtra ici avec son rapport."
+    "message": "Toutes vos republications ont réussi. Une annonce en échec apparaîtra ici."
   },
   "uiReportIssueTitle": {
     "message": "Issue GitHub"
@@ -444,7 +444,7 @@
     "message": "Réponse de l’équipe"
   },
   "uiSettingsNotice": {
-    "message": "Ajustez les délais et les limites pour espacer naturellement les actions et réduire le risque de détection d’une activité automatisée."
+    "message": "Gardez des délais longs et des limites basses. Vinted peut restreindre les comptes qui republient trop souvent ou en rafale ; cet outil est non officiel et non affilié à Vinted."
   },
   "uiResetField": {
     "message": "Rétablir la valeur par défaut"
@@ -484,5 +484,35 @@
   },
   "uiBulkDeleteResult": {
     "message": "{count} sauvegarde(s) supprimée(s). {retained} conservée(s) car occupée(s) ou non supprimée(s)."
+  },
+  "uiSafetyGuard": {
+    "message": "Protection du compte"
+  },
+  "uiSafetyGuardText": {
+    "message": "Les conditions de Vinted interdisent de supprimer et republier le même article plusieurs fois ou en masse. Ces réglages réduisent le risque de restriction sans le supprimer."
+  },
+  "uiItemCooldownHours": {
+    "message": "Heures minimum avant de republier le même article"
+  },
+  "uiBreakEvery": {
+    "message": "Longue pause après ce nombre de republications"
+  },
+  "uiBreakMinutes": {
+    "message": "Durée de la longue pause (minutes)"
+  },
+  "uiQuietHours": {
+    "message": "Ne pas republier pendant les heures calmes (heure locale)"
+  },
+  "uiQuietStart": {
+    "message": "Début des heures calmes (0–23)"
+  },
+  "uiQuietEnd": {
+    "message": "Fin des heures calmes (0–23)"
+  },
+  "uiConfirmForceReset": {
+    "message": "Cette pause a été causée par une restriction Vinted ou un contrôle anti-bot. Reprendre plus tôt augmente le risque d’une restriction plus longue. La supprimer quand même ?"
+  },
+  "uiErrorItemCooldown": {
+    "message": "Cet article a été republié récemment. Attendez le délai minimum entre deux republications du même article."
   }
 }

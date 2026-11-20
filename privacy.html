@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy policy — Vinted Republish FREE</title>
+  <title>Privacy policy — Marketplace Helper</title>
   <style>
     body { max-width: 760px; margin: 0 auto; padding: 28px 20px 56px; color: #202124; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     h1 { line-height: 1.2; margin-bottom: 4px; }
@@ -16,73 +16,87 @@
 </head>
 <body>
   <h1>Privacy policy</h1>
-  <p class="meta">Vinted Republish FREE — effective September 6, 2026</p>
+  <p class="meta">Marketplace Helper — effective November 20, 2026</p>
+  <p class="notice">Marketplace Helper is an unofficial tool. It is not affiliated with, endorsed by or sponsored by Vinted. It is a fork of an open project, maintained by lucsortiz.</p>
+
   <h2>Summary</h2>
-  <p>The extension uses a dedicated Cloudflare Worker for voluntary error reporting, with no advertising or audience analytics. It is active on supported Vinted wardrobe pages and uses data only for requested republishing and reporting.</p>
+  <p>The extension has no servers of its own. It does not send any data to the developer or to third parties, and it contains no advertising or analytics. It works only on supported Vinted pages and only when you click its buttons.</p>
 
   <h2>Data handled by the extension</h2>
   <ul>
-    <li><strong>Listing data and photos:</strong> the extension reads the selected listing’s content and Vinted-hosted photos, then sends the recreated listing to Vinted when the user requests republishing.</li>
-    <li><strong>Vinted session identifiers:</strong> CSRF and anonymous-session identifiers already used by Vinted are read to authenticate requests made to Vinted. They are stored per Vinted origin in Chrome’s in-memory session storage and are cleared when the browser session ends.</li>
-    <li><strong>Error reports:</strong> after an error, a filtered technical report is stored locally. It excludes the full URL, cookies, tokens, photos, listing backups, listing title, description, and listing ID. It is sent to the Cloudflare Worker only after an explicit click from the failed listing detail, and may then be shared with the developer through GitHub.</li>
+    <li><strong>Listing data and photos:</strong> when you ask to republish a listing, the extension reads that listing’s content and its Vinted-hosted photos, then sends the recreated listing to Vinted.</li>
+    <li><strong>Vinted session identifiers:</strong> the CSRF and anonymous-session identifiers that Vinted already uses are read to authenticate the requests made to Vinted on your behalf. They are kept per Vinted site in Chrome’s in-memory session storage and are cleared when the browser session ends.</li>
+    <li><strong>Error reports:</strong> after an error, a filtered technical report is stored on your device only, to help you understand what happened. It is never uploaded.</li>
   </ul>
 
   <h2>Sharing and transmission</h2>
-  <p>Listing data, photos, and the required session identifiers are transmitted only to Vinted domains to carry out the user-requested operation. Account transfers are stored only in the browser. The clean logout button deletes cookies and site storage only for the selected Vinted origin, without deleting the local transfer backup. A filtered report is sent to the Worker only after an explicit user action and may then be shared with the developer through GitHub. Listing photos and backup files are never attached.</p>
+  <p>Listing data, photos and the required session identifiers are sent only to Vinted domains, and only to carry out an operation you requested. Nothing is sent to the developer. The optional “clean logout” button deletes cookies and site storage only for the selected Vinted site.</p>
 
   <h2>Limited Use</h2>
-  <p>The use of information received through Chrome extension permissions complies with the Chrome Web Store User Data Policy, including its Limited Use requirements. Data is used only to provide the extension’s disclosed single purpose, is not used for advertising or credit decisions, and is not made available for human review except when a user deliberately sends a specific diagnostic report for support.</p>
+  <p>The use of information received through Chrome extension permissions complies with the Chrome Web Store User Data Policy, including its Limited Use requirements. Data is used only to provide the extension’s single purpose (republishing your own Vinted listings), is not sold, is not used for advertising or creditworthiness, and is not read by humans.</p>
 
-  <h2>Local listing backups and preferences</h2>
-  <p>Listing data, actual photo files and operation progress are stored in the extension’s IndexedDB. The backup is verified before deletion of an original and is kept while an operation is interrupted or in error. It is removed after the replacement is verified and deletion of the original is confirmed. Interrupted listings can be resumed manually or exported with their photos. Clearing extension data or uninstalling removes local backups; an exported file remains wherever you saved it. Exported files are never uploaded automatically.</p>
-  <p>Language, timing preferences, operation locks and Vinted pause deadlines are stored locally. Relisting volume uses a rolling 24-hour history. These records are not sent to the developer.</p>
-  <h2>Storage, retention, and deletion</h2>
-  <p>Session identifiers remain only for the current browser session. Up to 100 bounded error reports and their GitHub receipts remain in local Chrome storage until extension data is cleared or the extension is uninstalled. The listing title used to identify a receipt in the interface stays local. Uninstalling the extension revokes its access and deletes its local data.</p>
+  <h2>Local backups and settings</h2>
+  <p>Before an original listing is deleted, its data and photo files are stored in the extension’s local database (IndexedDB) and verified. The backup is removed once the new listing is verified and the original is confirmed deleted; it is kept while an operation is interrupted or in error. You can export or delete backups at any time. Language, delays, limits, quiet hours and a rolling history of recent republications (used to enforce limits) are stored locally too.</p>
+
+  <h2>Retention and deletion</h2>
+  <p>Session identifiers last only for the browser session. Up to 100 local error reports are kept until you clear the extension’s data. Uninstalling the extension deletes all of its local data; files you exported stay wherever you saved them.</p>
 
   <h2>Permissions</h2>
-  <p>These permissions are presented by Chrome and accepted when the extension is installed; there is no separate activation inside the extension. The <code>webRequest</code> permission reads the Vinted authentication headers needed for republishing; it does not block or modify requests. The <code>storage</code> permission stores session identifiers, preferences, coordination state and local error reports. Access to Vinted pages and image hosts is required to display the controls and recreate listings and photos. Access to the reporting Worker is optional and requested only when the user clicks the send button.</p>
+  <ul>
+    <li><strong>webRequest:</strong> reads, without blocking or modifying, the Vinted authentication headers needed to republish.</li>
+    <li><strong>storage / unlimitedStorage:</strong> keeps settings, limits and local listing backups with their photos.</li>
+    <li><strong>browsingData:</strong> used only by the “clean logout” button for the selected Vinted site.</li>
+    <li><strong>Access to Vinted sites and image hosts:</strong> shows the buttons in your wardrobe and copies your listing photos.</li>
+  </ul>
 
-  <h2>Security and policy changes</h2>
-  <p>The extension restricts its operations to supported Vinted origins and Vinted image hosts. A materially changed privacy policy will be published with the corresponding extension update.</p>
+  <h2>Changes</h2>
+  <p>A materially changed policy will be published with the corresponding extension update.</p>
 
   <h2>Contact</h2>
-  <p>Privacy questions: <a href="mailto:vinted-republish@proton.me">vinted-republish@proton.me</a></p>
+  <p>Questions: open an issue at <a href="https://github.com/lucsortiz/marketplace-helper/issues">github.com/lucsortiz/marketplace-helper/issues</a>.</p>
 
   <hr>
 
-  <h1 lang="fr">Politique de confidentialité</h1>
-  <p class="meta" lang="fr">Vinted Republish FREE — applicable à partir du 6 septembre 2026</p>
-  <div lang="fr">
-    <h2>Résumé</h2>
-    <p>L’extension utilise un Worker Cloudflare dédié au reporting volontaire, sans publicité ni outil d’analyse d’audience. Elle utilise les données uniquement pour fournir ses fonctions de republication et le reporting demandé.</p>
+  <section lang="es">
+    <h1>Política de privacidad</h1>
+    <p class="meta">Marketplace Helper — vigente desde el 20 de noviembre de 2026</p>
+    <p class="notice">Marketplace Helper es una herramienta no oficial. No está afiliada, respaldada ni patrocinada por Vinted. Es un fork de un proyecto abierto, mantenido por lucsortiz.</p>
 
-    <h2>Données traitées par l’extension</h2>
+    <h2>Resumen</h2>
+    <p>La extensión no tiene servidores propios. No envía datos al desarrollador ni a terceros, y no contiene publicidad ni analítica. Solo funciona en páginas de Vinted compatibles y solo cuando pulsas sus botones.</p>
+
+    <h2>Datos que trata la extensión</h2>
     <ul>
-      <li><strong>Données et photos de l’annonce :</strong> l’extension lit le contenu de l’annonce sélectionnée et ses photos hébergées par Vinted, puis envoie l’annonce recréée à Vinted lorsque l’utilisateur demande la republication.</li>
-      <li><strong>Identifiants de session Vinted :</strong> les identifiants CSRF et de session anonyme déjà utilisés par Vinted sont lus afin d’authentifier les requêtes adressées à Vinted. Ils sont stockés par origine Vinted dans le stockage de session en mémoire de Chrome et sont effacés à la fin de la session du navigateur.</li>
-      <li><strong>Rapports d’erreur :</strong> après une erreur, un rapport technique filtré est enregistré localement. Il exclut l’URL complète, les cookies, les jetons, les photos, les sauvegardes, le titre, la description et l’identifiant de l’annonce. Il est transmis au Worker uniquement après un clic explicite depuis le détail de l’annonce en erreur, puis peut être partagé avec le développeur via GitHub.</li>
+      <li><strong>Datos y fotos del anuncio:</strong> cuando pides republicar un anuncio, la extensión lee su contenido y sus fotos alojadas en Vinted, y envía el anuncio recreado a Vinted.</li>
+      <li><strong>Identificadores de sesión de Vinted:</strong> se leen los identificadores CSRF y de sesión anónima que Vinted ya usa, para autenticar las peticiones a Vinted en tu nombre. Se guardan por sitio de Vinted en el almacenamiento de sesión en memoria de Chrome y se borran al cerrar la sesión del navegador.</li>
+      <li><strong>Informes de error:</strong> tras un error, se guarda en tu dispositivo un informe técnico filtrado para ayudarte a entender qué pasó. Nunca se sube a ningún sitio.</li>
     </ul>
 
-    <h2>Partage et transmission</h2>
-    <p>Les données de l’annonce, les photos et les identifiants de session nécessaires sont transmis uniquement aux domaines Vinted afin d’exécuter l’action demandée. Un rapport filtré ne part vers le Worker que sur action explicite et peut ensuite être partagé au développeur via GitHub. Les photos d’annonce et les sauvegardes locales ne sont pas jointes.</p>
+    <h2>Compartición y transmisión</h2>
+    <p>Los datos del anuncio, las fotos y los identificadores de sesión necesarios se envían solo a dominios de Vinted y solo para realizar la operación que pediste. No se envía nada al desarrollador. El botón opcional de «cierre de sesión limpio» borra las cookies y el almacenamiento solo del sitio de Vinted elegido.</p>
 
-    <h2>Utilisation limitée</h2>
-    <p>L’utilisation des informations reçues par l’intermédiaire des autorisations de l’extension respecte la politique relative aux données utilisateur du Chrome Web Store, y compris ses exigences d’utilisation limitée (« Limited Use »). Les données servent uniquement à la finalité unique déclarée de l’extension, ne sont utilisées ni pour la publicité ni pour une décision de crédit, et ne sont pas rendues accessibles à une personne, sauf lorsqu’un utilisateur envoie volontairement un rapport de diagnostic précis afin d’obtenir de l’aide.</p>
+    <h2>Uso limitado</h2>
+    <p>El uso de la información obtenida mediante los permisos de la extensión cumple la Política de datos de usuario de Chrome Web Store, incluidos sus requisitos de uso limitado. Los datos solo se usan para el propósito único de la extensión (republicar tus propios anuncios de Vinted), no se venden, no se usan para publicidad ni solvencia y no los leen personas.</p>
 
-    <h2>Sauvegardes locales et préférences</h2>
-    <p>Les données des annonces, les fichiers des photos et l’avancement des opérations sont conservés dans IndexedDB, dans l’espace de l’extension. La sauvegarde est vérifiée avant suppression de l’original et reste conservée tant que l’opération est interrompue ou en erreur. Elle est supprimée après vérification de la copie et confirmation de la disparition de l’original. Les annonces interrompues peuvent être reprises manuellement ou exportées avec leurs photos. Effacer les données de l’extension ou la désinstaller supprime les sauvegardes locales ; un fichier exporté reste à l’emplacement choisi. Aucun export n’est envoyé automatiquement.</p>
-    <p>La langue, les délais, les verrous d’opération et les pauses demandées par Vinted sont stockés localement. Le volume de republication repose sur un historique glissant de 24 heures. Le développeur ne reçoit pas ces informations.</p>
-    <h2>Stockage, conservation et suppression</h2>
-    <p>Les identifiants de session sont conservés uniquement pendant la session en cours du navigateur. Au plus 100 rapports d’erreur bornés et leurs reçus GitHub restent dans le stockage local de Chrome jusqu’à l’effacement des données de l’extension ou la désinstallation. Le titre de l’annonce utilisé pour reconnaître un reçu dans l’interface reste local. La désinstallation révoque l’accès de l’extension et supprime ses données locales.</p>
+    <h2>Copias locales y ajustes</h2>
+    <p>Antes de borrar un anuncio original, sus datos y fotos se guardan en la base de datos local de la extensión (IndexedDB) y se verifican. La copia se elimina cuando el anuncio nuevo está verificado y se confirma el borrado del original; se conserva si la operación se interrumpe o falla. Puedes exportar o eliminar las copias cuando quieras. El idioma, los intervalos, los límites, las horas de descanso y un historial reciente de republicaciones (para aplicar los límites) también se guardan localmente.</p>
 
-    <h2>Autorisations</h2>
-    <p>Ces autorisations sont présentées par Chrome et acceptées lors de l’installation de l’extension ; aucune activation distincte n’est demandée dans l’extension. L’autorisation <code>webRequest</code> lit les en-têtes d’authentification Vinted nécessaires à la republication ; elle ne bloque ni ne modifie les requêtes. L’autorisation <code>storage</code> conserve les identifiants de session, les préférences, l’état de coordination et les rapports d’erreur locaux. L’accès aux pages et aux hôtes d’images Vinted est nécessaire pour afficher les commandes et recréer les annonces et leurs photos. L’accès au Worker de reporting est facultatif et demandé uniquement lors du clic d’envoi.</p>
+    <h2>Conservación y borrado</h2>
+    <p>Los identificadores de sesión duran solo la sesión del navegador. Se conservan hasta 100 informes de error locales hasta que borres los datos de la extensión. Al desinstalarla se eliminan todos sus datos locales; los archivos que hayas exportado permanecen donde los guardaste.</p>
 
-    <h2>Sécurité et évolution de cette politique</h2>
-    <p>L’extension limite ses opérations aux origines Vinted prises en charge et aux hôtes d’images Vinted. Toute modification importante de cette politique sera publiée avec la mise à jour correspondante de l’extension.</p>
+    <h2>Permisos</h2>
+    <ul>
+      <li><strong>webRequest:</strong> lee, sin bloquear ni modificar, las cabeceras de autenticación de Vinted necesarias para republicar.</li>
+      <li><strong>storage / unlimitedStorage:</strong> guarda ajustes, límites y copias locales de los anuncios con sus fotos.</li>
+      <li><strong>browsingData:</strong> solo lo usa el botón de «cierre de sesión limpio» del sitio de Vinted elegido.</li>
+      <li><strong>Acceso a los sitios y servidores de imágenes de Vinted:</strong> muestra los botones en tu armario y copia las fotos de tus anuncios.</li>
+    </ul>
 
-    <h2>Contact</h2>
-    <p>Questions relatives à la confidentialité : <a href="mailto:vinted-republish@proton.me">vinted-republish@proton.me</a></p>
-  </div>
-<hr><section lang="it"><h1>Informativa sulla privacy</h1><p class="meta">Vinted Republish FREE — 7 settembre 2026</p><p>L’estensione utilizza un Worker Cloudflare dedicato per l’invio volontario di segnalazioni di errore, senza pubblicità né analisi del pubblico.</p><h2>Dati e copie locali</h2><p>La selezione iniziale salva localmente solo i dati già visibili nella scheda dell’annuncio. Quando l’utente avvia la ripubblicazione dalla pagina dedicata, l’estensione legge i dettagli e le foto necessari e li invia ai domini Vinted. I token CSRF e di sessione anonima sono conservati separatamente per origine nella memoria di sessione di Chrome. Dati completi, foto e avanzamento sono salvati in IndexedDB nello spazio dell’estensione. Il backup viene verificato prima di eliminare l’originale, resta disponibile in caso di interruzione o errore e viene rimosso dopo il successo verificato.</p><h2>Ripristino, esportazione ed eliminazione</h2><p>Gli annunci interrotti possono essere ripresi manualmente o esportati con le foto. La rimozione dell’estensione o dei suoi dati elimina le copie locali; i file già esportati restano nella posizione scelta dall’utente.</p><h2>Segnalazioni e autorizzazioni</h2><p>Dopo un errore viene preparata localmente una segnalazione filtrata che esclude URL completi, cookie, token, foto, copie, titoli, descrizioni e identificativi degli annunci. Viene inviata al Worker solo dopo il clic esplicito dell’utente nel dettaglio dell’annuncio in errore e può essere condivisa con lo sviluppatore tramite GitHub. L’accesso al Worker è facoltativo. Le autorizzazioni <code>webRequest</code> e <code>storage</code> servono rispettivamente a leggere senza modificare gli header Vinted e a conservare i dati locali descritti.</p><h2>Contatti</h2><p><a href="mailto:vinted-republish@proton.me">vinted-republish@proton.me</a></p></section></body>
+    <h2>Cambios</h2>
+    <p>Cualquier cambio sustancial se publicará junto con la actualización correspondiente de la extensión.</p>
+
+    <h2>Contacto</h2>
+    <p>Dudas: abre una incidencia en <a href="https://github.com/lucsortiz/marketplace-helper/issues">github.com/lucsortiz/marketplace-helper/issues</a>.</p>
+  </section>
+</body>
 </html>

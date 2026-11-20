@@ -3,15 +3,15 @@
     "message": "The received page is incomplete. Open the listing on Vinted, refresh and check that you are signed in. Complete any verification shown, then retry. No listing was created during this attempt."
   },
   "extensionName": {
-    "message": "Vinted Republish FREE",
+    "message": "Marketplace Helper",
     "description": "Public extension name."
   },
   "extensionShortName": {
-    "message": "Republish",
+    "message": "MP Helper",
     "description": "Short extension name."
   },
   "extensionDescription": {
-    "message": "Republish individual or multiple listings directly from your Vinted wardrobe.",
+    "message": "Unofficial helper to republish your own Vinted listings at a safe pace. Not affiliated with Vinted.",
     "description": "Manifest and Chrome Web Store summary, maximum 132 characters."
   },
   "uiNavHome": {
@@ -27,7 +27,7 @@
     "message": "Language"
   },
   "uiWelcomeTitle": {
-    "message": "Thanks for installing Vinted Republish"
+    "message": "Thanks for installing Marketplace Helper"
   },
   "uiWelcomeLead": {
     "message": "Relist an item without starting from scratch. Two steps to find your buttons, with your listings backed up on this device."
@@ -36,7 +36,7 @@
     "message": "Pin the extension to your toolbar"
   },
   "uiPinText": {
-    "message": "Click the puzzle piece next to the address bar, then the pin beside Vinted Republish FREE."
+    "message": "Click the puzzle piece next to the address bar, then the pin beside Marketplace Helper."
   },
   "uiPinAside": {
     "message": "The icon opens your relisting volume, settings and listings waiting to be resumed."
@@ -297,13 +297,13 @@
     "message": "Failed listings"
   },
   "uiErrorsLead": {
-    "message": "Listings whose republish failed. Send the report to request a resolution, then track the GitHub issue state here."
+    "message": "Listings whose republish failed. Their data and photos stay on this device so you can review and resume them."
   },
   "uiErrorsEmptyTitle": {
     "message": "No failed listings"
   },
   "uiErrorsEmptyText": {
-    "message": "All your republishes succeeded. A listing that fails will show up here with its report."
+    "message": "All your republishes succeeded. A listing that fails will show up here."
   },
   "uiReportIssueTitle": {
     "message": "GitHub issue"
@@ -444,7 +444,7 @@
     "message": "Team response"
   },
   "uiSettingsNotice": {
-    "message": "Adjust delays and limits to space actions naturally and reduce the risk of automated activity being detected."
+    "message": "Keep delays long and limits low. Vinted may restrict accounts that relist too often or in bursts; this tool is unofficial and not affiliated with Vinted."
   },
   "uiResetField": {
     "message": "Restore the default value"
@@ -484,5 +484,35 @@
   },
   "uiBulkDeleteResult": {
     "message": "{count} backup(s) deleted. {retained} retained because they were busy or could not be deleted."
+  },
+  "uiSafetyGuard": {
+    "message": "Account protection"
+  },
+  "uiSafetyGuardText": {
+    "message": "Vinted’s terms forbid deleting and re-listing the same item repeatedly or in bulk. These settings reduce the risk of a restriction but cannot remove it."
+  },
+  "uiItemCooldownHours": {
+    "message": "Minimum hours before relisting the same item"
+  },
+  "uiBreakEvery": {
+    "message": "Long break after this many relists"
+  },
+  "uiBreakMinutes": {
+    "message": "Long break length (minutes)"
+  },
+  "uiQuietHours": {
+    "message": "Do not republish during quiet hours (local time)"
+  },
+  "uiQuietStart": {
+    "message": "Quiet hours start (0–23)"
+  },
+  "uiQuietEnd": {
+    "message": "Quiet hours end (0–23)"
+  },
+  "uiConfirmForceReset": {
+    "message": "This pause was caused by a Vinted restriction or anti-bot check. Resuming early increases the risk of a longer restriction. Remove it anyway?"
+  },
+  "uiErrorItemCooldown": {
+    "message": "This item was relisted recently. Wait for the minimum period between relists of the same item."
   }
 }

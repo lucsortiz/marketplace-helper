@@ -4,7 +4,7 @@
   let preferred = 'auto';
   function language(value) {
     const browser = (chrome.i18n.getUILanguage() || navigator.language || 'en').split('-')[0];
-    return ['fr', 'en', 'it'].includes(value === 'auto' ? browser : value) ? (value === 'auto' ? browser : value) : 'en';
+    return ['fr', 'en', 'it', 'es'].includes(value === 'auto' ? browser : value) ? (value === 'auto' ? browser : value) : 'en';
   }
   NS.t = (key, vars = {}) => {
     const message = catalogs[NS.language]?.[key]?.message || catalogs.en?.[key]?.message || key;
@@ -23,7 +23,7 @@
     document.dispatchEvent(new Event('republish:language'));
   };
   NS.localeReady = (async () => {
-    await Promise.all(['en', 'fr', 'it'].map(async code => {
+    await Promise.all(['en', 'fr', 'it', 'es'].map(async code => {
       catalogs[code] = await fetch(`${chrome.runtime.getURL(`_locales/${code}/messages.json`)}?v=0.11.9`).then(r => r.json());
     }));
     const state = await NS.control('state');

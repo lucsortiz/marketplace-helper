@@ -4,12 +4,12 @@ set -eu
 PROJECT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 VERSION=$(node -p "require('$PROJECT_DIR/manifest.json').version")
 RELEASE_DIR="$PROJECT_DIR/dist"
-RELEASE_ZIP="$RELEASE_DIR/vinted-republish-free-$VERSION.zip"
-RELEASE_TMP=$(mktemp -d "${TMPDIR:-/tmp}/vinted-republish.XXXXXX")
+RELEASE_ZIP="$RELEASE_DIR/marketplace-helper-$VERSION.zip"
+RELEASE_TMP=$(mktemp -d "${TMPDIR:-/tmp}/marketplace-helper.XXXXXX")
 trap 'rm -rf -- "$RELEASE_TMP"' EXIT HUP INT TERM
 
 mkdir -p "$RELEASE_DIR"
-for OLD_RELEASE in "$RELEASE_DIR"/relister-for-vinted-*.zip "$RELEASE_DIR"/vinted-republish-*.zip; do
+for OLD_RELEASE in "$RELEASE_DIR"/marketplace-helper-*.zip; do
   [ -e "$OLD_RELEASE" ] || continue
   [ "$OLD_RELEASE" = "$RELEASE_ZIP" ] || rm -f -- "$OLD_RELEASE"
 done
